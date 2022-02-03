@@ -27,17 +27,17 @@ class CharacterModel {
         @SerializedName("mass")
         val mass: String,
 
-        @SerializedName("hairColor")
-        val hairColor: String,
+        @SerializedName("hair_color")
+        val hair_Color: String,
 
-        @SerializedName("skinColor")
-        val skinColor: String,
+        @SerializedName("skin_color")
+        val skin_Color: String,
 
-        @SerializedName("eyeColor")
-        val eyeColor: String,
+        @SerializedName("eye_color")
+        val eye_Color: String,
 
-        @SerializedName("birthYear")
-        val birthYear: String,
+        @SerializedName("birth_year")
+        val birth_Year: String,
 
         @SerializedName("gender")
         val gender: String,

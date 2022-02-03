@@ -17,13 +17,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
     }
 
     override fun onResume() {
         super.onResume()
         getData()
-        setUpAdapter()
     }
 
     private fun getData(){
@@ -31,17 +30,20 @@ class MainActivity : AppCompatActivity() {
         val endpoint = retroFit.create(Endpoint ::class.java)
         val callback = endpoint.getPeople()
 
-        callback.enqueue(object  : Callback<CharacterModel.Result> {
-            override fun onResponse(call: Call<CharacterModel.Result>, response: Response<CharacterModel.Result>) {
+        callback.enqueue(object  : Callback<CharacterModel.Info> {
+            override fun onResponse(call: Call<CharacterModel.Info>, response: Response<CharacterModel.Info>) {
                 val model = response.body()
                 if(model != null){
-                    addList(model)
+                    model.results.forEach {
+                        addList(it)
+                    }
+                    setUpAdapter()
                 } else{
                     Log.d("nullApi","API Nula")
                 }
             }
 
-            override fun onFailure(call: Call<CharacterModel.Result>, t: Throwable) {
+            override fun onFailure(call: Call<CharacterModel.Info>, t: Throwable) {
                 Log.d("falhou","Deu Ruim")
             }
         })
@@ -52,8 +54,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpAdapter(){
-        val adapter = CharacterAdapter(characterList)
+        var adapter = CharacterAdapter(characterList,this)
         binding.rvPersonagens.adapter = adapter
-        binding.rvPersonagens.layoutManager = LinearLayoutManager(this)
+        binding.rvPersonagens.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
     }
 }
