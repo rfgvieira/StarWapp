@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">ActivityStarWapp</string>
-    <string name="personagens">Star Wars-Personagens</string>
+    <string name="starwars">StarWars</string>
+    <string name="personagens">Personagens</string>
+    <string name="planetas">Planetas</string>
+    <string name="espaconaves">Espaço Naves</string>
+    <string name="buscapersonagemtitulo">Buscar personagem</string>
+    <string name="busca">Busca</string>
+    <string name="idinput">Digite o Id</string>
+    <string name="tab_personagens">Personagens</string>
+    <string name="tab_planetas">Planetas</string>
+    <string name="tab_espaconaves">Espaço Naves</string>
 </resources>
