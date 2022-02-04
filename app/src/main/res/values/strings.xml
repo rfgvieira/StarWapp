@@ -6,6 +6,8 @@
     <string name="espaconaves">Espaço Naves</string>
     <string name="buscapersonagemtitulo">Buscar personagem</string>
     <string name="busca">Busca</string>
+    <string name="buscatudo">Buscar todos</string>
+    <string name="buscaunico">Buscar por Id</string>
     <string name="idinput">Digite o Id</string>
     <string name="tab_personagens">Personagens</string>
     <string name="tab_planetas">Planetas</string>
