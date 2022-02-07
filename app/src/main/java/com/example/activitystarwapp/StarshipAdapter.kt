@@ -11,7 +11,7 @@ class StarshipAdapter (private val starshipList: List<StarshipModel.Result>) : R
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StarshipHolder {
         binding = ActivityStarshipitemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return StarshipHolder(binding)
+        return StarshipHolder()
     }
 
     override fun onBindViewHolder(holder: StarshipHolder, position: Int) {
@@ -27,7 +27,5 @@ class StarshipAdapter (private val starshipList: List<StarshipModel.Result>) : R
 
     override fun getItemCount(): Int = starshipList.size
 
-    class StarshipHolder (binding : ActivityStarshipitemBinding ) : RecyclerView.ViewHolder(binding.root){ }
-
-
+    inner class StarshipHolder () : RecyclerView.ViewHolder(binding.root){ }
 }

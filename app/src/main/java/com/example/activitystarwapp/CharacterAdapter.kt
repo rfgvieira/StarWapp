@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.activitystarwapp.databinding.ActivityPersonagemitemBinding
 import kotlin.collections.ArrayList
 
-class CharacterAdapter(private val characterList: ArrayList<CharacterModel.Result>, context : Context) :
+class CharacterAdapter(private val characterList: List<CharacterModel.Result>, context: Context) :
     RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
     private lateinit var binding: ActivityPersonagemitemBinding
     private val cont = context
@@ -16,7 +16,7 @@ class CharacterAdapter(private val characterList: ArrayList<CharacterModel.Resul
     ): CharacterHolder {
         binding = ActivityPersonagemitemBinding.inflate(LayoutInflater.from(parent.context),
             parent,false)
-        return CharacterHolder(binding)
+        return CharacterHolder()
     }
 
     override fun onBindViewHolder(holder: CharacterAdapter.CharacterHolder, position: Int) {
@@ -42,8 +42,7 @@ class CharacterAdapter(private val characterList: ArrayList<CharacterModel.Resul
 
     override fun getItemCount(): Int = characterList.size
 
-    class CharacterHolder(binding: ActivityPersonagemitemBinding) :
-        RecyclerView.ViewHolder(binding.root){
+    inner class CharacterHolder() : RecyclerView.ViewHolder(binding.root){
 
     }
 }

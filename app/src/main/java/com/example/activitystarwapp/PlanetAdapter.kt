@@ -11,7 +11,7 @@ class PlanetAdapter (private  val planetList: List<PlanetsModel.Result>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetHolder {
         binding = ActivityPlanetitemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return PlanetHolder(binding)
+        return PlanetHolder()
     }
 
     override fun onBindViewHolder(holder: PlanetHolder, position: Int) {
@@ -38,9 +38,7 @@ class PlanetAdapter (private  val planetList: List<PlanetsModel.Result>) :
 
     override fun getItemCount(): Int = planetList.size
 
-    class PlanetHolder(binding: ActivityPlanetitemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class PlanetHolder() : RecyclerView.ViewHolder(binding.root) {
 
     }
-
-
 }

@@ -12,5 +12,11 @@ class RetroFit {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
+
+        fun setRetrofit() : Endpoint{
+            val retroFit = getRetrofitInstance("https://swapi.dev/api/")
+            return retroFit.create(Endpoint ::class.java)
+        }
+
     }
 }
