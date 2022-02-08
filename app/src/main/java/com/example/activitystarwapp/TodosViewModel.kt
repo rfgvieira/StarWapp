@@ -13,6 +13,12 @@ class TodosViewModel : ViewModel (){
     val starshipList = MutableLiveData<List<StarshipModel.Result>>()
     private val endpoint = RetroFit.setRetrofit()
 
+    fun setUpLists(){
+        characterList.value = listOf()
+        planetList.value = listOf()
+        starshipList.value = listOf()
+    }
+
     fun getCharacter(){
         val callback = endpoint.getPeoples()
 

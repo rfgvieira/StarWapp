@@ -2,10 +2,7 @@ package com.example.activitystarwapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.activitystarwapp.databinding.ActivityMainBinding
@@ -40,15 +37,22 @@ class TodosActivity : AppCompatActivity() {
                         }
                     }
                     1 -> { binding.tvSubtitle.setText(R.string.planetas)
-                        if(viewModel.planetList.value!!.size > 0)
-                            setUpAdapterPlanet()
-                        else
-                            getData()}
+                        viewModel.planetList.value?.let {
+                            if (it.isNotEmpty())
+                                setUpAdapterPlanet(it)
+                            else
+                                getData()
+                        }
+
+                    }
                     2 -> { binding.tvSubtitle.setText(R.string.espaconaves)
-                        if(viewModel.starshipList.value!!.size > 0)
-                            setUpAdapterStarship()
-                        else
-                            getData()}
+                        viewModel.starshipList.value?.let {
+                            if(it.isNotEmpty())
+                                setUpAdapterStarship(it)
+                            else
+                                getData()}
+                        }
+
                 }
             }
 
@@ -61,17 +65,23 @@ class TodosActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        viewModel.characterList.observe(this, Observer {
-            it.forEach { result ->
-                Log.d("observa","observado : ${result.name}")
-            }
+        viewModel.characterList.observe(this, {
             updateCharacter(it)
+        })
+
+        viewModel.planetList.observe(this,  {
+            updatePlanets(it)
+        })
+
+        viewModel.starshipList.observe(this, {
+            updateStarships(it)
         })
     }
 
     override fun onResume() {
         super.onResume()
         flag = 0
+        viewModel.setUpLists()
         getData()
     }
 
@@ -90,13 +100,13 @@ class TodosActivity : AppCompatActivity() {
         binding.pbLoadingrv.visibility = View.GONE
     }
 
-   fun updatePlanets(){
-       setUpAdapterPlanet()
+   fun updatePlanets(listPlanet: List<PlanetsModel.Result>) {
+       setUpAdapterPlanet(listPlanet)
        binding.pbLoadingrv.visibility = View.GONE
    }
 
-   fun updateStarships(){
-       setUpAdapterStarship()
+   fun updateStarships(listStarship: List<StarshipModel.Result>){
+       setUpAdapterStarship(listStarship)
        binding.pbLoadingrv.visibility = View.GONE
    }
 
@@ -106,19 +116,18 @@ class TodosActivity : AppCompatActivity() {
             binding.rvPersonagens.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
     }
 
-    private fun setUpAdapterPlanet(){
-        viewModel.planetList.value?.let {
-            val adapter = PlanetAdapter(it)
+    private fun setUpAdapterPlanet(listPlanet : List<PlanetsModel.Result>){
+
+            val adapter = PlanetAdapter(listPlanet)
             binding.rvPersonagens.adapter = adapter
             binding.rvPersonagens.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        }
+
     }
 
-    private fun setUpAdapterStarship(){
-        viewModel.starshipList.value?.let {
-            val adapter = StarshipAdapter(it)
-            binding.rvPersonagens.adapter = adapter
-            binding.rvPersonagens.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        }
+    private fun setUpAdapterStarship(listStarship : List<StarshipModel.Result>){
+        val adapter = StarshipAdapter(listStarship)
+        binding.rvPersonagens.adapter = adapter
+        binding.rvPersonagens.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+
     }
 }
