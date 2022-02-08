@@ -1,11 +1,11 @@
-package com.example.activitystarwapp
+package com.example.activitystarwapp.data.model
 
 import com.google.gson.annotations.SerializedName
 
 class PlanetsModel {
-    data class Info(
+    data class Response(
         @SerializedName("count")
-        val count: Long,
+        val count: Long? = 0L,
 
         @SerializedName("next")
         val next: String,

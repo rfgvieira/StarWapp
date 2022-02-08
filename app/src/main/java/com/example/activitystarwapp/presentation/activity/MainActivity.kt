@@ -1,4 +1,4 @@
-package com.example.activitystarwapp
+package com.example.activitystarwapp.presentation.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -14,11 +14,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnBuscaid.setOnClickListener {
-            val intent = Intent(this, BuscaActivity :: class.java)
+            val intent = Intent(this, BuscaActivity::class.java)
             startActivity(intent)
         }
+
         binding.btnBuscatudo.setOnClickListener {
-            val intent = Intent(this, TodosActivity :: class.java)
+            val intent = Intent(this, TodosActivity::class.java)
             startActivity(intent)
         }
     }

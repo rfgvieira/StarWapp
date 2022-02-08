@@ -1,8 +1,9 @@
-package com.example.activitystarwapp
+package com.example.activitystarwapp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.databinding.ActivityPlanetitemBinding
 
 class PlanetAdapter (private  val planetList: List<PlanetsModel.Result>) :

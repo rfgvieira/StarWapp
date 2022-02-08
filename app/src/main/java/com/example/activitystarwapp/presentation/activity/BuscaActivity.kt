@@ -1,13 +1,11 @@
-package com.example.activitystarwapp
+package com.example.activitystarwapp.presentation.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.databinding.ActivityBuscaunicoBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.activitystarwapp.presentation.viewmodel.BuscaViewModel
 
 class BuscaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBuscaunicoBinding
@@ -22,9 +20,9 @@ class BuscaActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
-        viewModel.characterResult.observe(this,{
+        viewModel.characterResult.observe(this) {
             bindValues(it)
-        })
+        }
     }
 
 

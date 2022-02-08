@@ -1,12 +1,13 @@
-package com.example.activitystarwapp
+package com.example.activitystarwapp.presentation.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.activitystarwapp.data.model.CharacterModel
+import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityPersonagemitemBinding
-import kotlin.collections.ArrayList
 
 class CharacterAdapter(private val characterList: List<CharacterModel.Result>, context: Context) :
     RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
@@ -19,7 +20,7 @@ class CharacterAdapter(private val characterList: List<CharacterModel.Result>, c
         return CharacterHolder()
     }
 
-    override fun onBindViewHolder(holder: CharacterAdapter.CharacterHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
         val characterItem = characterList[position]
         with(characterItem){
             binding.tvCharactername.text = name
@@ -32,11 +33,21 @@ class CharacterAdapter(private val characterList: List<CharacterModel.Result>, c
 
     private fun setEyeColor(eyeColor: String){
         when(eyeColor){
-            "red" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,R.color.red))
-            "yellow" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,R.color.yellow))
-            "blue" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,R.color.blue))
-            "brown" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,R.color.brown))
-            "blue-gray" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,R.color.bluegray))
+            "red" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+                R.color.red
+            ))
+            "yellow" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+                R.color.yellow
+            ))
+            "blue" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+                R.color.blue
+            ))
+            "brown" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+                R.color.brown
+            ))
+            "blue-gray" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+                R.color.bluegray
+            ))
         }
     }
 

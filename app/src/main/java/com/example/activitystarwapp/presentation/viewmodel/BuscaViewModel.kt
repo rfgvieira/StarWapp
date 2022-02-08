@@ -1,8 +1,10 @@
-package com.example.activitystarwapp
+package com.example.activitystarwapp.presentation.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.activitystarwapp.data.model.CharacterModel
+import com.example.activitystarwapp.data.service.RetroFit
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

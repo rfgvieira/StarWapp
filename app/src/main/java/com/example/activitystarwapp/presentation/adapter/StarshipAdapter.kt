@@ -1,8 +1,9 @@
-package com.example.activitystarwapp
+package com.example.activitystarwapp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.databinding.ActivityStarshipitemBinding
 
 class StarshipAdapter (private val starshipList: List<StarshipModel.Result>) : RecyclerView.Adapter<StarshipAdapter.StarshipHolder> (){
