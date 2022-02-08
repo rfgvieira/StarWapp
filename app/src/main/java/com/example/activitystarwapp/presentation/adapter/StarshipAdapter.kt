@@ -1,8 +1,10 @@
 package com.example.activitystarwapp.presentation.adapter
 
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.activitystarwapp.R
 import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.databinding.ActivityStarshipitemBinding
 
@@ -17,12 +19,15 @@ class StarshipAdapter (private val starshipList: List<StarshipModel.Result>) : R
 
     override fun onBindViewHolder(holder: StarshipHolder, position: Int) {
         with(starshipList[position]){
-            binding.tvNomenave.text = "Nome: ${name}"
-            binding.tvTripulacaonave.text = "Tripulação: ${crew}"
-            if(passengers == "n/a")
-                binding.tvPassageirosnave.text = "Passageiros: 0"
-            else
-                binding.tvPassageirosnave.text = "Passageiros: ${passengers}"
+            with(Resources.getSystem()){
+                binding.tvNomenave.text = name
+                binding.tvTripulacaonave.text = getString(R.string.tripulacao) + crew
+                    if(passengers == "n/a")
+                        binding.tvPassageirosnave.text = getString(R.string.passageiro) + passengers
+                    else
+                        binding.tvPassageirosnave.text = getString(R.string.passageiro) + passengers
+            }
+
         }
     }
 

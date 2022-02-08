@@ -9,7 +9,14 @@
     <string name="buscatudo">Buscar todos</string>
     <string name="buscaunico">Buscar por Id</string>
     <string name="idinput">Digite o Id</string>
-    <string name="tab_personagens">Personagens</string>
-    <string name="tab_planetas">Planetas</string>
-    <string name="tab_espaconaves">Espaço Naves</string>
+    <string name="altura">Height: </string>
+    <string name="olho">Eye Color: </string>
+    <string name="nome">Name: </string>
+    <string name="populacao">População: </string>
+    <string name="diametro">Diâmetro: </string>
+    <string name="km"> km</string>
+    <string name="mil"> K</string>
+    <string name="milhao"> M</string>
+    <string name="tripulacao">Tripulação: </string>
+    <string name="passageiro">Passageiros: </string>
 </resources>

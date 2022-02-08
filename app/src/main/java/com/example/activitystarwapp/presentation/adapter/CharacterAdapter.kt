@@ -1,6 +1,8 @@
 package com.example.activitystarwapp.presentation.adapter
 
+import android.os.Bundle
 import android.content.Context
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -23,9 +25,12 @@ class CharacterAdapter(private val characterList: List<CharacterModel.Result>, c
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
         val characterItem = characterList[position]
         with(characterItem){
-            binding.tvCharactername.text = name
-            binding.tvCharacterheight.text = "Height: ${height}"
-            binding.tvCharacterolho.text = "Eye Color: ${eye_Color}"
+            with(Resources.getSystem()){
+                binding.tvCharactername.text = name
+                binding.tvCharacterheight.text =getString(R.string.altura) + height
+                binding.tvCharacterolho.text = getString(R.string.olho) + eye_Color
+            }
+
 
             setEyeColor(eye_Color)
         }

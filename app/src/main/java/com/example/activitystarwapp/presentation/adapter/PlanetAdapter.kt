@@ -1,8 +1,10 @@
 package com.example.activitystarwapp.presentation.adapter
 
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.activitystarwapp.R
 import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.databinding.ActivityPlanetitemBinding
 
@@ -17,23 +19,26 @@ class PlanetAdapter (private  val planetList: List<PlanetsModel.Result>) :
 
     override fun onBindViewHolder(holder: PlanetHolder, position: Int) {
         with(planetList[position]){
+            with(Resources.getSystem()){
+                binding.tvNomeplanet.text =name
+                binding.tvDiametroplanet.text = getString(R.string.diametro) +
+                        diameter + getString(R.string.km)
+                        if(population != "unknown") {
+                            val pop = population.substring(0,population.length - 3)
+                            if(pop.length > 3){
+                                binding.tvPopulationplanet.text =
+                                    getString(R.string.populacao) +
+                                            pop.substring(0,pop.length - 3) +
+                                            getString(R.string.milhao)
+                            } else {
+                                binding.tvPopulationplanet.text =
+                                    getString(R.string.populacao) + pop + getString(R.string.mil)
+                            }
 
-            binding.tvNomeplanet.text =name
-            binding.tvDiametroplanet.text = "Diametro: ${diameter} KM"
-            if(population != "unknown") {
-                val pop = population.substring(0,population.length - 3)
-                if(pop.length > 3){
-                    binding.tvPopulationplanet.text =
-                        "População: ${pop.substring(0,pop.length - 3)}M"
-                } else {
-                    binding.tvPopulationplanet.text =
-                        "População: ${pop}K"
-                }
-
+                        }
+                        else
+                            binding.tvPopulationplanet.text = getString(R.string.populacao) + population
             }
-            else
-                binding.tvPopulationplanet.text = "População: ${population}"
-
         }
     }
 

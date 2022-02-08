@@ -3,6 +3,7 @@ package com.example.activitystarwapp.presentation.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.activitystarwapp.R
 import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.databinding.ActivityBuscaunicoBinding
 import com.example.activitystarwapp.presentation.viewmodel.BuscaViewModel
@@ -36,9 +37,9 @@ class BuscaActivity : AppCompatActivity() {
 
     private fun bindValues(model : CharacterModel.Result){
         with(model){
-            binding.tvNomepersonagem.text = "Name: ${name}"
-            binding.tvAlturapersonagem.text = "Height: ${height}"
-            binding.tvOlhopersonagem.text = "Eye Color: ${eye_Color}"
+            binding.tvNomepersonagem.text = getString(R.string.nome) + name
+            binding.tvAlturapersonagem.text = getString(R.string.altura) + height
+            binding.tvOlhopersonagem.text = getString(R.string.olho) + eye_Color
         }
 
     }
