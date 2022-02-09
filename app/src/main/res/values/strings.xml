@@ -1,13 +1,16 @@
 <resources>
     <string name="app_name">ActivityStarWapp</string>
+    <string name="copyright">Powered by <b>Rodrigo Vieira</b></string>
     <string name="starwars">StarWars</string>
-    <string name="personagens">Personagens</string>
-    <string name="planetas">Planetas</string>
-    <string name="espaconaves">Espaço Naves</string>
-    <string name="buscapersonagemtitulo">Buscar personagem</string>
-    <string name="busca">Busca</string>
-    <string name="buscatudo">Buscar todos</string>
-    <string name="buscaunico">Buscar por Id</string>
+    <string name="escolhalado"><b>ESCOLHER O LADO DA FORÇA, VOCÊ DEVE</b></string>
+    <string name="escolhasabio"><b>ESCOLHA SABIAMENTE...</b></string>
+    <string name="personagens"><b>Personagens</b></string>
+    <string name="planetas"><b>Planetas</b></string>
+    <string name="espaconaves"><b>Espaçonaves</b></string>
+    <string name="aleatorio"><b>Aleatório</b></string>
+    <string name="busca">Buscar</string>
+    <string name="buscatudo">BUSCAR TUDO</string>
+    <string name="buscaunico">POR ID</string>
     <string name="idinput">Digite o Id</string>
     <string name="altura">Height: </string>
     <string name="olho">Eye Color: </string>

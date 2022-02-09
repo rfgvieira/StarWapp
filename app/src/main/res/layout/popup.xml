@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/roundedbtn"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/normal">
+    <TextView
+        android:id="@+id/tv_popupescolha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/escolhasabio"
+        android:textColor="@color/orange"
+        android:textSize="@dimen/normal"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_popuptudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buscatudo"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="@dimen/small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_popupid"
+        app:layout_constraintTop_toBottomOf="@+id/tv_popupescolha"/>
+
+    <Button
+        android:id="@+id/btn_popupid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buscaunico"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_popuptudo"
+        app:layout_constraintTop_toTopOf="@+id/btn_popuptudo"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

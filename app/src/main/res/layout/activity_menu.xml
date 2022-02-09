@@ -4,30 +4,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/large"
+
+    android:background="@color/background"
     tools:context=".presentation.activity.MainActivity">
 
-    <Button
-        android:id="@+id/btn_buscatudo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/big"
-        android:textSize="@dimen/txt_xlarge"
-        android:text="@string/buscatudo"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageView
+        android:id="@+id/logomenu"
+        android:layout_height="@dimen/imglargeh"
+        android:layout_width="@dimen/imglargew"
+        android:src="@drawable/splash"
+        android:layout_marginTop="@dimen/normal"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <Button
-        android:id="@+id/btn_buscaid"
+    <TextView
+        android:id="@+id/escolhamenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/txt_xlarge"
-        android:text="@string/buscaunico"
+        android:layout_marginTop="@dimen/normal"
+        android:textAlignment="center"
+        android:text="@string/escolhalado"
+        android:textColor="@color/green"
+        app:layout_constraintTop_toBottomOf="@id/logomenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/btn_nave"
+        android:layout_width="@dimen/btnmenu"
+        android:layout_height="@dimen/btnmenu"
+        android:layout_marginTop="@dimen/large"
+        android:background="@drawable/roundedbtn"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/xsmall"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_marginBottom="@dimen/big"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_planeta"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logomenu">
+
+        <ImageView
+            android:layout_width="@dimen/imglargeh"
+            android:layout_height="@dimen/imglargeh"
+            android:src="@drawable/starship" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/busca"
+            android:textSize="@dimen/txt_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/espaconaves"
+            android:textSize="@dimen/txt_normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_planeta"
+        android:layout_width="@dimen/btnmenu"
+        android:layout_height="@dimen/btnmenu"
+        android:layout_marginStart="@dimen/normal"
+        android:background="@drawable/roundedbtn"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/xsmall"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginEnd="@dimen/normal"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="@id/btn_nave">
+
+        <ImageView
+            android:layout_width="@dimen/imglargeh"
+            android:layout_height="@dimen/imglargeh"
+            android:src="@drawable/planet" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/busca"
+            android:textSize="@dimen/txt_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/planetas"
+            android:textSize="@dimen/txt_normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_personagem"
+        android:layout_width="@dimen/btnmenu"
+        android:layout_height="@dimen/btnmenu"
+        android:background="@drawable/roundedbtn"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/xsmall"
+        android:layout_marginBottom="@dimen/large"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_aleatorio"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="@dimen/imglargeh"
+            android:layout_height="@dimen/imglargeh"
+            android:src="@drawable/luke" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/busca"
+            android:textSize="@dimen/txt_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/personagens"
+            android:textSize="@dimen/txt_normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_aleatorio"
+        android:layout_width="@dimen/btnmenu"
+        android:layout_height="@dimen/btnmenu"
+        android:background="@drawable/roundedbtnrand"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/xsmall"
+        android:layout_marginEnd="@dimen/normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_personagem">
+
+        <ImageView
+            android:layout_width="@dimen/imglargeh"
+            android:layout_height="@dimen/imglargeh"
+            android:src="@drawable/darthvader" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/busca"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aleatorio"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_normal" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_xnormal"
+        android:textColor="@color/white"
+        android:text="@string/copyright"
+        android:layout_marginBottom="@dimen/small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@
     <dimen name="xnormal">16dp</dimen>
     <dimen name="normal">24dp</dimen>
     <dimen name="xlarge">32dp</dimen>
+    <dimen name="zlarge">48dp</dimen>
     <dimen name="large">64dp</dimen>
     <dimen name="big">128dp</dimen>
 
@@ -15,8 +16,14 @@
     <dimen name="txt_xnormal">16sp</dimen>
     <dimen name="txt_normal">24sp</dimen>
     <dimen name="txt_xlarge">32sp</dimen>
+    <dimen name="txt_zlarge">48sp</dimen>
     <dimen name="txt_large">64sp</dimen>
 
-
+    <dimen name="imgsmall">50dp</dimen>
+    <dimen name="imgnormal">75dp</dimen>
     <dimen name="imglargeh">100dp</dimen>
+    <dimen name="imglargew">250dp</dimen>
+
+    <dimen name="btnmenu">170dp</dimen>
+
 </resources>
