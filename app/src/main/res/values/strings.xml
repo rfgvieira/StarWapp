@@ -2,6 +2,7 @@
     <string name="app_name">ActivityStarWapp</string>
     <string name="copyright">Powered by <b>Rodrigo Vieira</b></string>
     <string name="starwars">StarWars</string>
+    <string name="tripulacao">Tripulação: </string>
     <string name="escolhalado"><b>ESCOLHER O LADO DA FORÇA, VOCÊ DEVE</b></string>
     <string name="escolhasabio"><b>ESCOLHA SABIAMENTE...</b></string>
     <string name="personagens"><b>Personagens</b></string>
@@ -12,14 +13,14 @@
     <string name="buscatudo">BUSCAR TUDO</string>
     <string name="buscaunico">POR ID</string>
     <string name="idinput">Digite o Id</string>
-    <string name="altura">Height: </string>
     <string name="olho">Eye Color: </string>
     <string name="nome">Name: </string>
     <string name="populacao">População: </string>
-    <string name="diametro">Diâmetro: </string>
+    <string name="diametro">Diâmetro: %1$s km</string>
     <string name="km"> km</string>
     <string name="mil"> K</string>
+    <string name="resultado">Resultados: </string>
     <string name="milhao"> M</string>
-    <string name="tripulacao">Tripulação: </string>
     <string name="passageiro">Passageiros: </string>
+    <string name="aaaaa"><b>Altura: </b></string>
 </resources>

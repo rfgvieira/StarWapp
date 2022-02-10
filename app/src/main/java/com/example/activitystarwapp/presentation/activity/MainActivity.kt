@@ -4,13 +4,11 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.Window
 import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityMenuBinding
 import com.example.activitystarwapp.databinding.PopupBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMenuBinding
@@ -37,9 +35,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnAleatorio.setOnClickListener {
             showPopUp(3)
         }
-
-
-
     }
 
     private fun showPopUp(tipo: Int) {
@@ -47,11 +42,11 @@ class MainActivity : AppCompatActivity() {
         val bindingPopupBinding = PopupBinding.inflate(layoutInflater)
 
         bindingPopupBinding.btnPopuptudo.setOnClickListener {
-            redirectActivity(1,0)
+            redirectActivity(tipo,0)
         }
 
         bindingPopupBinding.btnPopupid.setOnClickListener {
-            redirectActivity(1,1)
+            redirectActivity(tipo,1)
         }
 
         val dialog = Dialog(this)
@@ -67,9 +62,6 @@ class MainActivity : AppCompatActivity() {
             it.setBackgroundDrawable(getDrawable(R.drawable.roundedbtn))}
 
         dialog.show()
-
-
-
     }
 
 
@@ -77,27 +69,25 @@ class MainActivity : AppCompatActivity() {
         when(tipo){
             0 -> {
                 if(modo == 0) {
-                    val intent = Intent(this, TodosActivity::class.java)
+                    val intent = Intent(this, TodosStarshipsActivity::class.java)
                     startActivity(intent)
                 } else {
                     val intent = Intent(this, BuscaActivity::class.java)
                     startActivity(intent)
                 }
             }
-
             1 -> {
                 if(modo == 0) {
-                    val intent = Intent(this, TodosActivity::class.java)
+                    val intent = Intent(this, TodosPlanetasActivity::class.java)
                     startActivity(intent)
                 } else {
                     val intent = Intent(this, BuscaActivity::class.java)
                     startActivity(intent)
                 }
             }
-
             2 -> {
                 if(modo == 0) {
-                    val intent = Intent(this, TodosActivity::class.java)
+                    val intent = Intent(this, TodosPersonagensActivity::class.java)
                     startActivity(intent)
                 } else {
                     val intent = Intent(this, BuscaActivity::class.java)

@@ -38,7 +38,7 @@ class BuscaActivity : AppCompatActivity() {
     private fun bindValues(model : CharacterModel.Result){
         with(model){
             binding.tvNomepersonagem.text = getString(R.string.nome) + name
-            binding.tvAlturapersonagem.text = getString(R.string.altura) + height
+            binding.tvAlturapersonagem.text = getString(R.string.aaaaa) + height
             binding.tvOlhopersonagem.text = getString(R.string.olho) + eye_Color
         }
 

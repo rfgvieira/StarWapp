@@ -21,11 +21,11 @@ class StarshipAdapter (private val starshipList: List<StarshipModel.Result>) : R
         with(starshipList[position]){
             with(Resources.getSystem()){
                 binding.tvNomenave.text = name
-                binding.tvTripulacaonave.text = getString(R.string.tripulacao) + crew
+                binding.tvTripulacaonave.text = "Tripulação ${crew}"
                     if(passengers == "n/a")
-                        binding.tvPassageirosnave.text = getString(R.string.passageiro) + passengers
+                        binding.tvPassageirosnave.text = "Passageiros: " + passengers
                     else
-                        binding.tvPassageirosnave.text = getString(R.string.passageiro) + passengers
+                        binding.tvPassageirosnave.text = "Passageiros: " + passengers
             }
 
         }

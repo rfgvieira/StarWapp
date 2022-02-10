@@ -27,34 +27,34 @@ class CharacterAdapter(private val characterList: List<CharacterModel.Result>, c
         with(characterItem){
             with(Resources.getSystem()){
                 binding.tvCharactername.text = name
-                binding.tvCharacterheight.text =getString(R.string.altura) + height
-                binding.tvCharacterolho.text = getString(R.string.olho) + eye_Color
+                binding.tvCharacterheight.text ="Altura: "+ height
+                binding.tvCharacterolho.text = "Cor dos Olhos: " + eye_Color
             }
 
 
-            setEyeColor(eye_Color)
+//            setEyeColor(eye_Color)
         }
     }
 
-    private fun setEyeColor(eyeColor: String){
-        when(eyeColor){
-            "red" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
-                R.color.red
-            ))
-            "yellow" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
-                R.color.yellow
-            ))
-            "blue" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
-                R.color.blue
-            ))
-            "brown" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
-                R.color.brown
-            ))
-            "blue-gray" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
-                R.color.bluegray
-            ))
-        }
-    }
+//    private fun setEyeColor(eyeColor: String){
+//        when(eyeColor){
+//            "red" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+//                R.color.red
+//            ))
+//            "yellow" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+//                R.color.yellow
+//            ))
+//            "blue" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+//                R.color.blue
+//            ))
+//            "brown" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+//                R.color.brown
+//            ))
+//            "blue-gray" -> binding.imvCharacterolho.setBackgroundColor(ContextCompat.getColor(cont,
+//                R.color.bluegray
+//            ))
+//        }
+//    }
 
     override fun getItemCount(): Int = characterList.size
 

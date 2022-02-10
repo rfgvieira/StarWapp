@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:text="@string/buscaunico"
         android:backgroundTint="@color/black"
+        android:paddingHorizontal="@dimen/zlarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_popuptudo"
         app:layout_constraintTop_toTopOf="@+id/btn_popuptudo"/>

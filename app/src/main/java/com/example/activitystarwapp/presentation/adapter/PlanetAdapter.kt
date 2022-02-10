@@ -21,23 +21,18 @@ class PlanetAdapter (private  val planetList: List<PlanetsModel.Result>) :
         with(planetList[position]){
             with(Resources.getSystem()){
                 binding.tvNomeplanet.text =name
-                binding.tvDiametroplanet.text = getString(R.string.diametro) +
-                        diameter + getString(R.string.km)
+                binding.tvDiametroplanet.text = "Diametro: ${diameter} km"
                         if(population != "unknown") {
                             val pop = population.substring(0,population.length - 3)
                             if(pop.length > 3){
-                                binding.tvPopulationplanet.text =
-                                    getString(R.string.populacao) +
-                                            pop.substring(0,pop.length - 3) +
-                                            getString(R.string.milhao)
+                                binding.tvPopulationplanet.text = "População: ${ pop.substring(0,pop.length - 3)} M"
                             } else {
-                                binding.tvPopulationplanet.text =
-                                    getString(R.string.populacao) + pop + getString(R.string.mil)
+                                binding.tvPopulationplanet.text = "População: ${population} K"
                             }
 
                         }
                         else
-                            binding.tvPopulationplanet.text = getString(R.string.populacao) + population
+                            binding.tvPopulationplanet.text = "População: ${population}"
             }
         }
     }

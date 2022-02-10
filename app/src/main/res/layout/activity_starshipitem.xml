@@ -14,31 +14,46 @@
         app:layout_constraintEnd_toEndOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal">
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/imv_shipicon"
+                android:layout_width="@dimen/imgsmall"
+                android:layout_height="@dimen/imgsmall"
+                android:src="@drawable/starship"
+                app:civ_border_color="@color/black"
+                app:civ_border_width="@dimen/xsmall"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:id="@+id/tv_nomenave"
                 android:layout_width="wrap_content"
+                android:textColor="@color/orange"
+                android:layout_marginStart="@dimen/normal"
                 android:layout_height="wrap_content"
                 tools:text="Nome: Jajaja"
                 android:textSize="@dimen/txt_normal"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imv_shipicon"
                 app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:id="@+id/tv_tripulacaonave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Tripulação: 10000 "
+                android:layout_marginStart="@dimen/normal"
                 android:textSize="@dimen/txt_xnormal"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imv_shipicon"
                 app:layout_constraintTop_toBottomOf="@+id/tv_nomenave"/>
             <TextView
                 android:id="@+id/tv_passageirosnave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Passageiros: 47,060"
+                android:layout_marginStart="@dimen/normal"
                 android:textSize="@dimen/txt_xnormal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_tripulacaonave"/>
+                app:layout_constraintStart_toEndOf="@id/imv_shipicon"
+                app:layout_constraintTop_toBottomOf="@id/tv_tripulacaonave"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
