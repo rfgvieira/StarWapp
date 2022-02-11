@@ -23,4 +23,7 @@
     <string name="milhao"> M</string>
     <string name="passageiro">Passageiros: </string>
     <string name="aaaaa"><b>Altura: </b></string>
+    <string name="avisonulo">Digite algum número</string>
+    <string name="avisoforarange">Id inexistente</string>
+    <string name="exemplobusca">Ex.: 1</string>
 </resources>

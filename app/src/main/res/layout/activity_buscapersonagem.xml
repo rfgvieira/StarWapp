@@ -4,43 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/small"
+    android:padding="@dimen/normal"
     android:background="@color/background"
     tools:context=".presentation.activity.TodosPersonagensActivity">
 
     <ImageView
-        android:id="@+id/imv_voltatodosplanet"
+        android:id="@+id/imv_voltaunicopers"
         android:layout_width="@dimen/imgsmall"
         android:layout_height="@dimen/imgsmall"
+        android:layout_marginTop="@dimen/small"
         android:src="@drawable/arrow"
         app:layout_constraintTop_toTopOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageView
-        android:id="@+id/iconbuscatudoplanet"
+        android:id="@+id/iconbuscaunicopers"
         android:layout_width="@dimen/imgnormal"
         android:layout_height="@dimen/imgnormal"
-        android:src="@drawable/planet"
+        android:layout_marginHorizontal="@dimen/small"
+        android:src="@drawable/luke"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_titleplanet"
-        app:layout_constraintStart_toEndOf="@id/imv_voltatodosplanet"/>
+        app:layout_constraintEnd_toStartOf="@id/tv_subtitle"
+        app:layout_constraintStart_toEndOf="@id/imv_voltaunicopers"/>
 
     <TextView
-        android:id="@+id/tv_titleplanet"
+        android:id="@+id/tv_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/txt_xlarge"
         android:textColor="@color/orange"
         android:layout_marginTop="@dimen/xnormal"
         android:layout_marginEnd="@dimen/large"
-        android:text="@string/planetas"
-        app:layout_constraintStart_toEndOf="@id/iconbuscatudoplanet"
+        android:text="@string/personagens"
+        app:layout_constraintStart_toEndOf="@id/iconbuscaunicopers"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:id="@+id/ll_pers"
+        android:layout_marginTop="@dimen/normal"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle">
+
+        <EditText
+
+            android:id="@+id/edt_searchbarbuscaunicoper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:layout_weight="0.6"
+            android:inputType="number"
+            android:paddingHorizontal="@dimen/small"
+            android:paddingVertical="@dimen/xxsmall"
+            android:background="@drawable/searchbar"
+            android:textSize="@dimen/txt_normal"
+            android:hint="@string/exemplobusca" />
+
+        <ImageView
+            android:id="@+id/imv_buscaper"
+            android:layout_width="@dimen/imgnormal"
+            android:layout_height="@dimen/imgsmall"
+            android:src="@drawable/lupa"
+            android:padding="@dimen/small"
+            android:background="@drawable/roundedbtn"
+            android:layout_marginStart="@dimen/small"
+            android:textSize="@dimen/txt_normal"
+            android:layout_weight="0.4"
+          />
+    </LinearLayout>
+
+
     <TextView
-        android:id="@+id/tv_resultcounttodosplanet"
+        android:id="@+id/tv_resultcounttodospers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/txt_xnormal"
@@ -48,20 +86,21 @@
         tools:text="33 Resultados"
         android:layout_marginTop="@dimen/xnormal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/rv_planets"/>
+        app:layout_constraintBottom_toTopOf="@id/rv_personagens"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_planets"
+        android:id="@+id/rv_personagens"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_titleplanet"
+        app:layout_constraintTop_toBottomOf="@id/ll_pers"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ProgressBar
         android:id="@+id/pb_loadingrv"
+        android:elevation="@dimen/small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"

@@ -1,5 +1,6 @@
 package com.example.activitystarwapp.presentation.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -17,14 +18,27 @@ class TodosPlanetasActivity : AppCompatActivity() {
     private lateinit var binding : ActivityTodosplanetasBinding
     private lateinit var viewModel : TodosPlanetasViewModel
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTodosplanetasBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this).get(TodosPlanetasViewModel::class.java)
         setContentView(binding.root)
 
+        binding.imvVoltatodosplanet.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        viewModel.setUpList()
+
         initObservers()
         getData()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.pbLoadingrv.visibility = View.VISIBLE
     }
 
     private fun initObservers() {
@@ -34,7 +48,6 @@ class TodosPlanetasActivity : AppCompatActivity() {
     }
 
     private fun getData() {
-        binding.pbLoadingrv.visibility = View.VISIBLE
         binding.rvPlanets.adapter = null
         viewModel.getPlanets()
     }

@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, TodosStarshipsActivity::class.java)
                     startActivity(intent)
                 } else {
-                    val intent = Intent(this, BuscaActivity::class.java)
+                    val intent = Intent(this, BuscaStarshipActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, TodosPlanetasActivity::class.java)
                     startActivity(intent)
                 } else {
-                    val intent = Intent(this, BuscaActivity::class.java)
+                    val intent = Intent(this, BuscaPlanetaActivity::class.java)
                     startActivity(intent)
                 }
             }
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, TodosPersonagensActivity::class.java)
                     startActivity(intent)
                 } else {
-                    val intent = Intent(this, BuscaActivity::class.java)
+                    val intent = Intent(this, BuscaPersonagemActivity::class.java)
                     startActivity(intent)
                 }
             }

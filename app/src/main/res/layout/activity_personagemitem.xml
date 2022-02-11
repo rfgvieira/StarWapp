@@ -24,7 +24,7 @@
                 android:id="@+id/imv_persicon"
                 android:layout_width="@dimen/imgsmall"
                 android:layout_height="@dimen/imgsmall"
-                android:src="@drawable/starship"
+                android:src="@drawable/luke"
                 app:civ_border_color="@color/black"
                 app:civ_border_width="@dimen/xsmall"
                 app:layout_constraintBottom_toBottomOf="parent"

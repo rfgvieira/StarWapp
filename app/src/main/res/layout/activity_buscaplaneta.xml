@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/small"
-    android:background="@color/background"
-    tools:context=".presentation.activity.TodosPersonagensActivity">
-
+    tools:context=".presentation.activity.BuscaPlanetaActivity"
+    android:padding="@dimen/normal"
+    android:background="@color/background">
     <ImageView
-        android:id="@+id/imv_voltatodosplanet"
+        android:id="@+id/imv_voltaunicoplanet"
         android:layout_width="@dimen/imgsmall"
         android:layout_height="@dimen/imgsmall"
+        android:layout_marginTop="@dimen/small"
         android:src="@drawable/arrow"
         app:layout_constraintTop_toTopOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageView
-        android:id="@+id/iconbuscatudoplanet"
+        android:id="@+id/iconbuscaunicopplanet"
         android:layout_width="@dimen/imgnormal"
         android:layout_height="@dimen/imgnormal"
+        android:layout_marginHorizontal="@dimen/small"
         android:src="@drawable/planet"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_titleplanet"
-        app:layout_constraintStart_toEndOf="@id/imv_voltatodosplanet"/>
+        app:layout_constraintEnd_toStartOf="@id/tv_titlebuscaplanet"
+        app:layout_constraintStart_toEndOf="@id/imv_voltaunicoplanet"/>
 
     <TextView
-        android:id="@+id/tv_titleplanet"
+        android:id="@+id/tv_titlebuscaplanet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/txt_xlarge"
@@ -35,9 +35,46 @@
         android:layout_marginTop="@dimen/xnormal"
         android:layout_marginEnd="@dimen/large"
         android:text="@string/planetas"
-        app:layout_constraintStart_toEndOf="@id/iconbuscatudoplanet"
+        app:layout_constraintStart_toEndOf="@id/iconbuscaunicopplanet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:id="@+id/ll_pers"
+        android:layout_marginTop="@dimen/normal"
+        app:layout_constraintTop_toBottomOf="@id/tv_titlebuscaplanet">
+
+        <EditText
+
+            android:id="@+id/edt_searchbarbuscaunicoplanet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:layout_weight="0.6"
+            android:inputType="number"
+            android:paddingHorizontal="@dimen/small"
+            android:paddingVertical="@dimen/xxsmall"
+            android:background="@drawable/searchbar"
+            android:textSize="@dimen/txt_normal"
+            android:hint="@string/exemplobusca" />
+
+        <ImageView
+            android:id="@+id/imv_buscaplanet"
+            android:layout_width="@dimen/imgnormal"
+            android:layout_height="@dimen/imgsmall"
+            android:src="@drawable/lupa"
+            android:padding="@dimen/small"
+            android:background="@drawable/roundedbtn"
+            android:layout_marginStart="@dimen/small"
+            android:textSize="@dimen/txt_normal"
+            android:layout_weight="0.4"
+            />
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tv_resultcounttodosplanet"
@@ -48,20 +85,21 @@
         tools:text="33 Resultados"
         android:layout_marginTop="@dimen/xnormal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/rv_planets"/>
+        app:layout_constraintBottom_toTopOf="@id/rv_planet"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_planets"
+        android:id="@+id/rv_planet"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_titleplanet"
+        app:layout_constraintTop_toBottomOf="@id/ll_pers"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ProgressBar
         android:id="@+id/pb_loadingrv"
+        android:elevation="@dimen/small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"

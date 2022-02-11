@@ -12,9 +12,15 @@ import retrofit2.Response
 class TodosStarshipsViewModel : ViewModel() {
     private val endpoint = RetroFit.setRetrofit()
     val starshipList = MutableLiveData<StarshipModel.Response>()
+    private var flag = 0
+    fun setUpList(){
+        if(flag == 1)
+            return
+        starshipList.value = StarshipModel.Response(0, "", null, listOf())
+        flag = 1
+    }
 
     fun getStarships(){
-        starshipList.value = StarshipModel.Response(0, "", null, listOf())
         val callback = endpoint.getStarships()
 
         callback.enqueue(object  : Callback<StarshipModel.Response> {

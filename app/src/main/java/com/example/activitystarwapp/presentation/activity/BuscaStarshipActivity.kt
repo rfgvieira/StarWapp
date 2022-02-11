@@ -1,32 +1,36 @@
 package com.example.activitystarwapp.presentation.activity
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.activitystarwapp.R
 import com.example.activitystarwapp.data.model.StarshipModel
-import com.example.activitystarwapp.databinding.ActivityPlanetitemBinding
-import com.example.activitystarwapp.databinding.ActivityTodosstarshipsBinding
+import com.example.activitystarwapp.databinding.ActivityBuscaStarshipBinding
 import com.example.activitystarwapp.presentation.adapter.StarshipAdapter
-import com.example.activitystarwapp.presentation.viewmodel.TodosPlanetasViewModel
 import com.example.activitystarwapp.presentation.viewmodel.TodosStarshipsViewModel
 
-class TodosStarshipsActivity : AppCompatActivity() {
-
-    private lateinit var binding : ActivityTodosstarshipsBinding
-    private lateinit var viewModel : TodosStarshipsViewModel
+class BuscaStarshipActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityBuscaStarshipBinding
+    private lateinit var viewModel: TodosStarshipsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityTodosstarshipsBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
+        binding = ActivityBuscaStarshipBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.imvVoltatodosship.setOnClickListener {
+        viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
+
+        binding.imvVoltaunicoship.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.imvBuscaship.setOnClickListener {
+            searchId()
         }
 
         viewModel.setUpList()
@@ -37,7 +41,7 @@ class TodosStarshipsActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        binding.pbLoadingrv.visibility = View.VISIBLE
+        binding.pbLoadingship.visibility = View.VISIBLE
     }
 
     private fun getData() {
@@ -52,16 +56,26 @@ class TodosStarshipsActivity : AppCompatActivity() {
 
     fun updateStarships(listStarship: List<StarshipModel.Result>) {
         setUpAdapterStarship(listStarship)
-        binding.pbLoadingrv.visibility = View.GONE
+        binding.pbLoadingship.visibility = View.GONE
     }
 
     private fun setUpAdapterStarship(listStarship: List<StarshipModel.Result>) {
         val adapter = StarshipAdapter(listStarship)
-        binding.rvStarship.adapter = adapter
-        binding.rvStarship.layoutManager =
+        binding.rvShip.adapter = adapter
+        binding.rvShip.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
     }
 
-
+    private fun searchId() {
+        viewModel.starshipList.value?.let {
+            val id = binding.edtSearchbarbuscaunicoship.text.toString()
+            if(id.isEmpty()){
+                Toast.makeText(this,R.string.avisonulo, Toast.LENGTH_LONG)
+            } else if(id.toInt() > it.results.size ){
+                Toast.makeText(this,R.string.avisoforarange, Toast.LENGTH_LONG)
+            }  else {
+                setUpAdapterStarship(listOf(it.results[id.toInt()-1]))
+            }
+        }
+    }
 }

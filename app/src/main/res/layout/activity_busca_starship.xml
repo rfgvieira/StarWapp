@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.activity.BuscaStarshipActivity"
+    android:padding="@dimen/normal"
+    android:background="@color/background">
+    <ImageView
+        android:id="@+id/imv_voltaunicoship"
+        android:layout_width="@dimen/imgsmall"
+        android:layout_height="@dimen/imgsmall"
+        android:layout_marginTop="@dimen/small"
+        android:src="@drawable/arrow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iconbuscaunicoship"
+        android:layout_width="@dimen/imgnormal"
+        android:layout_height="@dimen/imgnormal"
+        android:layout_marginHorizontal="@dimen/small"
+        android:src="@drawable/starship"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_titlebuscaship"
+        app:layout_constraintStart_toEndOf="@id/imv_voltaunicoship"/>
+
+    <TextView
+        android:id="@+id/tv_titlebuscaship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_xlarge"
+        android:textColor="@color/orange"
+        android:layout_marginTop="@dimen/xnormal"
+        android:layout_marginEnd="@dimen/large"
+        android:text="@string/espaconaves"
+        app:layout_constraintStart_toEndOf="@id/iconbuscaunicoship"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:id="@+id/ll_pers"
+        android:layout_marginTop="@dimen/normal"
+        app:layout_constraintTop_toBottomOf="@id/tv_titlebuscaship">
+
+        <EditText
+            android:id="@+id/edt_searchbarbuscaunicoship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:layout_weight="0.6"
+            android:inputType="number"
+            android:paddingHorizontal="@dimen/small"
+            android:paddingVertical="@dimen/xxsmall"
+            android:background="@drawable/searchbar"
+            android:textSize="@dimen/txt_normal"
+            android:hint="@string/exemplobusca" />
+
+        <ImageView
+            android:id="@+id/imv_buscaship"
+            android:layout_width="@dimen/imgnormal"
+            android:layout_height="@dimen/imgsmall"
+            android:src="@drawable/lupa"
+            android:padding="@dimen/small"
+            android:background="@drawable/roundedbtn"
+            android:layout_marginStart="@dimen/small"
+            android:textSize="@dimen/txt_normal"
+            android:layout_weight="0.4"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_resultcounttodosship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_xnormal"
+        android:textColor="@color/white"
+        tools:text="33 Resultados"
+        android:layout_marginTop="@dimen/xnormal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rv_ship"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_ship"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_pers"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/pb_loadingship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
