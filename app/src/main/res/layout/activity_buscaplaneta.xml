@@ -8,7 +8,7 @@
     android:padding="@dimen/normal"
     android:background="@color/background">
     <ImageView
-        android:id="@+id/imv_voltaunicoplanet"
+        android:id="@+id/imv_volta"
         android:layout_width="@dimen/imgsmall"
         android:layout_height="@dimen/imgsmall"
         android:layout_marginTop="@dimen/small"
@@ -24,7 +24,7 @@
         android:src="@drawable/planet"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_titlebuscaplanet"
-        app:layout_constraintStart_toEndOf="@id/imv_voltaunicoplanet"/>
+        app:layout_constraintStart_toEndOf="@id/imv_volta"/>
 
     <TextView
         android:id="@+id/tv_titlebuscaplanet"

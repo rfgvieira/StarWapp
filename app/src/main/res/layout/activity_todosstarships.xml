@@ -8,35 +8,6 @@
     android:background="@color/background"
     tools:context=".presentation.activity.TodosPersonagensActivity">
 
-    <ImageView
-        android:id="@+id/imv_voltatodosship"
-        android:layout_width="@dimen/imgsmall"
-        android:layout_height="@dimen/imgsmall"
-        android:src="@drawable/arrow"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <ImageView
-        android:id="@+id/imv_buscatodosshipicon"
-        android:layout_width="@dimen/imgnormal"
-        android:layout_height="@dimen/imgnormal"
-        android:src="@drawable/starship"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_titleship"
-        app:layout_constraintStart_toEndOf="@id/imv_voltatodosship"/>
-
-    <TextView
-        android:id="@+id/tv_titleship"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/txt_xlarge"
-        android:textColor="@color/orange"
-        android:layout_marginTop="@dimen/xnormal"
-        android:layout_marginEnd="@dimen/large"
-        android:text="@string/espaconaves"
-        app:layout_constraintStart_toEndOf="@id/imv_buscatodosshipicon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_resultcounttodosship"
@@ -56,15 +27,8 @@
         android:layout_marginTop="@dimen/large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_titleship"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <ProgressBar
-        android:id="@+id/pb_loadingrv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,35 +8,6 @@
     android:background="@color/background"
     tools:context=".presentation.activity.TodosPersonagensActivity">
 
-    <ImageView
-        android:id="@+id/imv_voltatodospers"
-        android:layout_width="@dimen/imgsmall"
-        android:layout_height="@dimen/imgsmall"
-        android:src="@drawable/arrow"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <ImageView
-        android:id="@+id/iconbuscatudopers"
-        android:layout_width="@dimen/imgnormal"
-        android:layout_height="@dimen/imgnormal"
-        android:src="@drawable/luke"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_subtitle"
-        app:layout_constraintStart_toEndOf="@id/imv_voltatodospers"/>
-
-    <TextView
-        android:id="@+id/tv_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/txt_xlarge"
-        android:textColor="@color/orange"
-        android:layout_marginTop="@dimen/xnormal"
-        android:layout_marginEnd="@dimen/large"
-        android:text="@string/personagens"
-        app:layout_constraintStart_toEndOf="@id/iconbuscatudopers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/tv_resultcounttodospers"
@@ -46,7 +17,6 @@
         android:textColor="@color/white"
         tools:text="33 Resultados"
         android:layout_marginTop="@dimen/xnormal"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/rv_personagens"/>
 
@@ -54,20 +24,12 @@
         android:id="@+id/rv_personagens"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/large"
+        android:layout_marginTop="@dimen/normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <ProgressBar
-        android:id="@+id/pb_loadingrv"
-        android:elevation="@dimen/small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

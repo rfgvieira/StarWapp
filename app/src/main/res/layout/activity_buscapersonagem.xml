@@ -9,7 +9,7 @@
     tools:context=".presentation.activity.TodosPersonagensActivity">
 
     <ImageView
-        android:id="@+id/imv_voltaunicopers"
+        android:id="@+id/imv_volta"
         android:layout_width="@dimen/imgsmall"
         android:layout_height="@dimen/imgsmall"
         android:layout_marginTop="@dimen/small"
@@ -25,7 +25,7 @@
         android:src="@drawable/luke"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_subtitle"
-        app:layout_constraintStart_toEndOf="@id/imv_voltaunicopers"/>
+        app:layout_constraintStart_toEndOf="@id/imv_volta"/>
 
     <TextView
         android:id="@+id/tv_subtitle"

@@ -27,7 +27,7 @@ class BuscaPlanetaActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(TodosPlanetasViewModel::class.java)
 
-        binding.imvVoltaunicoplanet.setOnClickListener {
+        binding.imvVolta.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

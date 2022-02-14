@@ -24,7 +24,7 @@ class BuscaStarshipActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
 
-        binding.imvVoltaunicoship.setOnClickListener {
+        binding.imvVolta.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

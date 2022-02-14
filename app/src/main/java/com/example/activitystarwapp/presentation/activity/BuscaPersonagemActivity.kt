@@ -22,7 +22,7 @@ class BuscaPersonagemActivity : AppCompatActivity() {
         setContentView(binding.root)
         viewModel = ViewModelProvider(this).get(TodosPersonagensViewModel :: class.java)
 
-        binding.imvVoltaunicopers.setOnClickListener {
+        binding.imvVolta.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

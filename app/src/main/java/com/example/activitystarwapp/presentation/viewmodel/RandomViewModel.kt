@@ -22,18 +22,17 @@ class RandomViewModel : ViewModel() {
 
 
     fun getCharacter(){
-
         val callback = endpoint.getPeopleId((1..82).random())
 
         callback.enqueue(object  : Callback<CharacterModel.Result> {//ViewModel
-        override fun onResponse(call: Call<CharacterModel.Result>, response: Response<CharacterModel.Result>) {
-            val model = response.body()
-            if(model != null){
-                characterList.value = model
-            } else{
-                Log.d("nullApi","API Nula")
+            override fun onResponse(call: Call<CharacterModel.Result>, response: Response<CharacterModel.Result>) {
+                val model = response.body()
+                if(model != null){
+                    characterList.value = model
+                } else{
+                    Log.d("nullApi","API Nula")
+                }
             }
-        }
 
             override fun onFailure(call: Call<CharacterModel.Result>, t: Throwable) {
                 Log.d("falhou","Deu Ruim")
@@ -42,18 +41,17 @@ class RandomViewModel : ViewModel() {
     }
 
     fun getPlanet(){
-
         val callback = endpoint.getPlanetsId((1..60).random())
 
         callback.enqueue(object  : Callback<PlanetsModel.Result> {//ViewModel
-        override fun onResponse(call: Call<PlanetsModel.Result>, response: Response<PlanetsModel.Result>) {
-            val model = response.body()
-            if(model != null){
-                planetList.value = model
-            } else{
-                Log.d("nullApi","API Nula")
+            override fun onResponse(call: Call<PlanetsModel.Result>, response: Response<PlanetsModel.Result>) {
+                val model = response.body()
+                if(model != null){
+                    planetList.value = model
+                } else{
+                    Log.d("nullApi","API Nula")
+                }
             }
-        }
 
             override fun onFailure(call: Call<PlanetsModel.Result>, t: Throwable) {
                 Log.d("falhou","Deu Ruim")
@@ -62,19 +60,17 @@ class RandomViewModel : ViewModel() {
     }
 
     fun getStarship(){
-
         val callback = endpoint.getStarshipsId((1..23).random())
 
         callback.enqueue(object  : Callback<StarshipModel.Result> {//ViewModel
-        override fun onResponse(call: Call<StarshipModel.Result>, response: Response<StarshipModel.Result>) {
-            val model = response.body()
-            if(model != null){
-                starshipList.value = model
-            } else{
-                Log.d("nullApi","API Nula")
+            override fun onResponse(call: Call<StarshipModel.Result>, response: Response<StarshipModel.Result>) {
+                val model = response.body()
+                if(model != null){
+                    starshipList.value = model
+                } else{
+                    Log.d("nullApi","API Nula")
+                }
             }
-        }
-
             override fun onFailure(call: Call<StarshipModel.Result>, t: Throwable) {
                 Log.d("falhou","Deu Ruim")
             }
