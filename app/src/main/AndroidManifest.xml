@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ActivityStarWapp">
         <activity
+            android:name=".presentation.activity.RandomActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.activity.BuscaStarshipActivity"
             android:exported="false" />
         <activity

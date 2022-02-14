@@ -12,17 +12,17 @@ interface Endpoint {
     fun getPeoples() : Call<CharacterModel.Response>
 
     @GET("people/{id}")
-    fun getPeopleId(@Path("id") id : Int) : Call<CharacterModel.Response>
+    fun getPeopleId(@Path("id") id : Int) : Call<CharacterModel.Result>
 
     @GET("planets/")
     fun getPlanets() : Call<PlanetsModel.Response>
 
     @GET("planets/{id}")
-    fun getPlanetsId(@Path("id") id : Int) : Call<PlanetsModel.Response>
+    fun getPlanetsId(@Path("id") id : Int) : Call<PlanetsModel.Result>
 
     @GET("starships/")
     fun getStarships() : Call<StarshipModel.Response>
 
     @GET("starships/{id}")
-    fun getStarshipsId(@Path("id") id : Int) : Call<StarshipModel.Response>
+    fun getStarshipsId(@Path("id") id : Int) : Call<StarshipModel.Result>
 }

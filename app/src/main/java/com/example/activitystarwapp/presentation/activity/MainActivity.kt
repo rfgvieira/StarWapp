@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnAleatorio.setOnClickListener {
-            showPopUp(3)
+            val intent = Intent(this, RandomActivity::class.java)
+            startActivity(intent)
         }
     }
 

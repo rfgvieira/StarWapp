@@ -23,7 +23,7 @@ class StarshipAdapter (private val starshipList: List<StarshipModel.Result>) : R
                 binding.tvNomenave.text = name
                 binding.tvTripulacaonave.text = "Tripulação ${crew}"
                     if(passengers == "n/a")
-                        binding.tvPassageirosnave.text = "Passageiros: " + passengers
+                        binding.tvPassageirosnave.text = "Passageiros: " + 0
                     else
                         binding.tvPassageirosnave.text = "Passageiros: " + passengers
             }

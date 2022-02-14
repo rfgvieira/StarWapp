@@ -13,7 +13,7 @@
     <string name="buscatudo">BUSCAR TUDO</string>
     <string name="buscaunico">POR ID</string>
     <string name="idinput">Digite o Id</string>
-    <string name="olho">Eye Color: </string>
+    <string name="olho">Eye Color: %1$s</string>
     <string name="nome">Name: </string>
     <string name="populacao">População: </string>
     <string name="diametro">Diâmetro: %1$s km</string>
@@ -21,7 +21,7 @@
     <string name="mil"> K</string>
     <string name="resultado">Resultados: </string>
     <string name="milhao"> M</string>
-    <string name="passageiro">Passageiros: </string>
+    <string name="passageiro">Passageiros: %1$s </string>
     <string name="aaaaa"><b>Altura: </b></string>
     <string name="avisonulo">Digite algum número</string>
     <string name="avisoforarange">Id inexistente</string>
