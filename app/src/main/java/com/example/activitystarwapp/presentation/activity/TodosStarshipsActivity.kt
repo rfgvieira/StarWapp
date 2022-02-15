@@ -39,8 +39,6 @@ class TodosStarshipsActivity : BaseActivity() {
         setIconActivity(R.drawable.starship)
     }
 
-
-
     private fun getData() {
         viewModel.getStarships()
     }
@@ -57,7 +55,7 @@ class TodosStarshipsActivity : BaseActivity() {
         binding.rvStarship.adapter = adapter
         binding.rvStarship.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
+        loadCompleted()
     }
 
 

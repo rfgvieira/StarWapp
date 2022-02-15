@@ -16,41 +16,33 @@ import com.example.activitystarwapp.databinding.ActivityBuscaplanetaBinding
 import com.example.activitystarwapp.presentation.adapter.PlanetAdapter
 import com.example.activitystarwapp.presentation.viewmodel.TodosPlanetasViewModel
 
-class BuscaPlanetaActivity : AppCompatActivity() {
+class BuscaPlanetaActivity : BuscaBaseActivity() {
     private lateinit var binding : ActivityBuscaplanetaBinding
     private lateinit var viewModel: TodosPlanetasViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityBuscaplanetaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initializeView()
 
         viewModel = ViewModelProvider(this).get(TodosPlanetasViewModel::class.java)
-
-        binding.imvVolta.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.imvBuscaplanet.setOnClickListener {
-            searchId()
-        }
-
         viewModel.setUpList()
-
         initObserver()
         getData()
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        binding.pbLoadingrv.visibility = View.VISIBLE
+    private fun initializeView() {
+        setTitleActivity(R.string.planetas)
+        setIconActivity(R.drawable.planet)
     }
+
 
     private fun initObserver() {
         viewModel.planetList.observe(this, {
-            updatePlanet(it.results)
+            setUpAdapter(it.results)
         })
     }
 
@@ -58,21 +50,16 @@ class BuscaPlanetaActivity : AppCompatActivity() {
         viewModel.getPlanets()
     }
 
-    private fun updatePlanet(planetList : List<PlanetsModel.Result>) {
-        setUpAdapter(planetList)
-    }
-
     private fun setUpAdapter(planetList : List<PlanetsModel.Result>){
         val adapter = PlanetAdapter(planetList)
         binding.rvPlanet.adapter = adapter
         binding.rvPlanet.layoutManager =
             LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        binding.pbLoadingrv.visibility = View.GONE
+        loadCompleted()
     }
 
-    private fun searchId() {
+    override fun searchId() {
         viewModel.planetList.value?.let {
-            val id = binding.edtSearchbarbuscaunicoplanet.text.toString()
             if(id.isEmpty()){
                 Toast.makeText(this,R.string.avisonulo, Toast.LENGTH_SHORT).show()
             } else if(id.toInt() > it.results.size ){

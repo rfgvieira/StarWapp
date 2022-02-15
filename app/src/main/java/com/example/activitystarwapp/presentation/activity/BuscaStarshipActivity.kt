@@ -13,7 +13,7 @@ import com.example.activitystarwapp.databinding.ActivityBuscaStarshipBinding
 import com.example.activitystarwapp.presentation.adapter.StarshipAdapter
 import com.example.activitystarwapp.presentation.viewmodel.TodosStarshipsViewModel
 
-class BuscaStarshipActivity : AppCompatActivity() {
+class BuscaStarshipActivity : BuscaBaseActivity() {
     private lateinit var binding : ActivityBuscaStarshipBinding
     private lateinit var viewModel: TodosStarshipsViewModel
 
@@ -21,28 +21,20 @@ class BuscaStarshipActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBuscaStarshipBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initlizeViews()
 
         viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
-
-        binding.imvVolta.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.imvBuscaship.setOnClickListener {
-            searchId()
-        }
-
         viewModel.setUpList()
 
         initObservers()
         getData()
     }
 
-    override fun onResume() {
-        super.onResume()
-        binding.pbLoadingship.visibility = View.VISIBLE
+    private fun initlizeViews() {
+        setTitleActivity(R.string.espaconaves)
+        setIconActivity(R.drawable.starship)
     }
+
 
     private fun getData() {
         viewModel.getStarships()
@@ -50,13 +42,8 @@ class BuscaStarshipActivity : AppCompatActivity() {
 
     private fun initObservers() {
         viewModel.starshipList.observe(this) {
-            updateStarships(it.results)
+            setUpAdapterStarship(it.results)
         }
-    }
-
-    fun updateStarships(listStarship: List<StarshipModel.Result>) {
-        setUpAdapterStarship(listStarship)
-        binding.pbLoadingship.visibility = View.GONE
     }
 
     private fun setUpAdapterStarship(listStarship: List<StarshipModel.Result>) {
@@ -64,11 +51,11 @@ class BuscaStarshipActivity : AppCompatActivity() {
         binding.rvShip.adapter = adapter
         binding.rvShip.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        loadCompleted()
     }
 
-    private fun searchId() {
+    override fun searchId() {
         viewModel.starshipList.value?.let {
-            val id = binding.edtSearchbarbuscaunicoship.text.toString()
             if(id.isEmpty()){
                 Toast.makeText(this,R.string.avisonulo, Toast.LENGTH_LONG)
             } else if(id.toInt() > it.results.size ){
@@ -78,4 +65,5 @@ class BuscaStarshipActivity : AppCompatActivity() {
             }
         }
     }
+
 }

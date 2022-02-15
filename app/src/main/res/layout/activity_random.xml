@@ -8,36 +8,6 @@
     android:background="@color/background"
     tools:context=".presentation.activity.RandomActivity">
 
-    <ImageView
-        android:id="@+id/imv_voltarandom"
-        android:layout_width="@dimen/imgsmall"
-        android:layout_height="@dimen/imgsmall"
-        android:src="@drawable/arrow"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <ImageView
-        android:id="@+id/iconrandom"
-        android:layout_width="@dimen/imgnormal"
-        android:layout_height="@dimen/imgnormal"
-        android:src="@drawable/darthvader"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tv_titlerandom"
-        app:layout_constraintStart_toEndOf="@id/imv_voltarandom"/>
-
-    <TextView
-        android:id="@+id/tv_titlerandom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/txt_xlarge"
-        android:textColor="@color/orange"
-        android:layout_marginTop="@dimen/xnormal"
-        android:layout_marginEnd="@dimen/large"
-        android:text="@string/aleatorio"
-        app:layout_constraintStart_toEndOf="@id/iconrandom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_randomitem"
         android:layout_width="match_parent"
@@ -46,9 +16,7 @@
         android:layout_marginTop="@dimen/large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_titlerandom"
-        >
-
+        app:layout_constraintTop_toTopOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -98,15 +66,4 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_randatr1"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
-    <ProgressBar
-        android:id="@+id/pb_loadingrv"
-        android:elevation="@dimen/small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

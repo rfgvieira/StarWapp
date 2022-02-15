@@ -13,7 +13,7 @@
         android:layout_height="@dimen/imglargeh"
         android:layout_width="@dimen/imglargew"
         android:src="@drawable/splash"
-        android:layout_marginTop="@dimen/normal"
+        android:layout_marginTop="@dimen/xlarge"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -27,9 +27,20 @@
         android:textAlignment="center"
         android:text="@string/escolhalado"
         android:textColor="@color/green"
-        app:layout_constraintTop_toBottomOf="@id/logomenu"
+        app:layout_constraintBottom_toTopOf="@id/btn_nave"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <GridView
+        android:id="@+id/gv_gridmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        android:verticalSpacing="@dimen/normal"
+        android:horizontalSpacing="@dimen/normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_copyright"/>
 
     <LinearLayout
         android:id="@+id/btn_nave"
@@ -166,6 +177,7 @@
             android:textSize="@dimen/txt_normal" />
     </LinearLayout>
     <TextView
+        android:id="@+id/tv_copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/txt_xnormal"

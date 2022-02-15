@@ -28,7 +28,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        //binding.pbLoading.visibility = View.VISIBLE
+        binding.pbLoading.visibility = View.VISIBLE
     }
 
     fun setTitleActivity(idRes : Int){
@@ -40,7 +40,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun loadCompleted(){
-        //binding.pbLoading.visibility = View.GONE
+        binding.pbLoading.visibility = View.GONE
     }
 
 

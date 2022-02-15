@@ -35,7 +35,6 @@ class TodosPersonagensActivity : BaseActivity() {
 
     private fun initObservers() {
         viewModel.characterList.observe(this) {
-            loadCompleted()
             setUpAdapterCharacter(it.results)
         }
     }
@@ -50,6 +49,8 @@ class TodosPersonagensActivity : BaseActivity() {
         binding.rvPersonagens.adapter = adapter
         binding.rvPersonagens.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        loadCompleted()
+
     }
 
 

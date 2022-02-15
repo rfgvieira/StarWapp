@@ -35,7 +35,7 @@ class TodosPlanetasActivity : BaseActivity() {
 
     private fun initObservers() {
         viewModel.planetList.observe(this) {
-            updatePlanets(it.results)
+            setUpAdapterPlanet(it.results)
         }
     }
 
@@ -43,17 +43,12 @@ class TodosPlanetasActivity : BaseActivity() {
         viewModel.getPlanets()
     }
 
-    fun updatePlanets(listPlanet: List<PlanetsModel.Result>) {
-        setUpAdapterPlanet(listPlanet)
-    }
-
     private fun setUpAdapterPlanet(listPlanet: List<PlanetsModel.Result>) {
-
         val adapter = PlanetAdapter(listPlanet)
         binding.tvResultcounttodosplanet.text = getString(R.string.resultado) + listPlanet.count()
         binding.rvPlanets.adapter = adapter
         binding.rvPlanets.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
+        loadCompleted()
     }
 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/small">
+    <LinearLayout
+        android:elevation="@dimen/small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:id="@+id/ll_busca"
+        android:layout_marginTop="@dimen/normal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+
+            android:id="@+id/edt_searchbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:layout_weight="0.6"
+            android:inputType="number"
+            android:paddingHorizontal="@dimen/small"
+            android:paddingVertical="@dimen/xxsmall"
+            android:background="@drawable/searchbar"
+            android:textSize="@dimen/txt_normal"
+            android:hint="@string/exemplobusca" />
+
+        <ImageView
+            android:id="@+id/imv_buscaicon"
+            android:layout_width="@dimen/imgnormal"
+            android:layout_height="@dimen/imgsmall"
+            android:src="@drawable/lupa"
+            android:padding="@dimen/small"
+            android:background="@drawable/roundedbtn"
+            android:layout_marginStart="@dimen/small"
+            android:textSize="@dimen/txt_normal"
+            android:layout_weight="0.4"/>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_busca"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/large"
+        app:layout_constraintTop_toBottomOf="@id/ll_busca"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

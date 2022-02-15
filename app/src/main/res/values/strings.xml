@@ -3,7 +3,7 @@
     <string name="copyright">Powered by <b>Rodrigo Vieira</b></string>
     <string name="starwars">StarWars</string>
     <string name="tripulacao">Tripulação: </string>
-    <string name="escolhalado"><b>ESCOLHER O LADO DA FORÇA, VOCÊ DEVE</b></string>
+    <string name="escolhalado"><b>ESCOLHER O LADO\n DA FORÇA, VOCÊ DEVE</b></string>
     <string name="escolhasabio"><b>ESCOLHA SABIAMENTE...</b></string>
     <string name="personagens"><b>Personagens</b></string>
     <string name="planetas"><b>Planetas</b></string>

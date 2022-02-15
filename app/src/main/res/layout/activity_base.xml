@@ -7,6 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
+        android:elevation="@dimen/large"
         android:id="@+id/imv_volta"
         android:layout_width="@dimen/imgsmall"
         android:layout_height="@dimen/imgsmall"
@@ -20,11 +21,13 @@
         android:layout_width="@dimen/imgnormal"
         android:layout_height="@dimen/imgnormal"
         android:src="@drawable/planet"
+        android:elevation="@dimen/large"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/tv_title"
         app:layout_constraintStart_toEndOf="@id/imv_volta"/>
 
     <TextView
+        android:elevation="@dimen/large"
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,5 +50,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
