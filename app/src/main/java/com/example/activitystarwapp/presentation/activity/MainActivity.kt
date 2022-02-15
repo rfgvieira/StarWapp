@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.Window
+import android.widget.AdapterView
 import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityMenuBinding
 import com.example.activitystarwapp.databinding.PopupBinding
+import com.example.activitystarwapp.presentation.adapter.GridAdapter
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMenuBinding
@@ -18,26 +20,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpAdapter()
+        binding.gvGridmain.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
+                if(position != 3)
+                    showPopUp(position)
+                else {
+                    val intent = Intent(this, RandomActivity::class.java)
+                    startActivity(intent)
+                }
 
-        binding.btnNave.setOnClickListener {
-            showPopUp(0)
-        }
+            }
 
-        binding.btnPlaneta.setOnClickListener {
-            showPopUp(1)
-        }
 
-        binding.btnPersonagem.setOnClickListener {
-            showPopUp(2)
-
-        }
-
-        binding.btnAleatorio.setOnClickListener {
-            val intent = Intent(this, RandomActivity::class.java)
-            startActivity(intent)
-        }
     }
 
+    private fun setUpAdapter(){
+        var arrayName = arrayListOf(R.string.espaconaves,R.string.planetas, R.string.personagens, R.string.aleatorio)
+        var arrayImage = arrayListOf(R.drawable.starship, R.drawable.planet, R.drawable.luke, R.drawable.darthvader)
+        val adapter = GridAdapter(this,arrayName, arrayImage)
+        binding.gvGridmain.adapter = adapter
+    }
     private fun showPopUp(tipo: Int) {
 
         val bindingPopupBinding = PopupBinding.inflate(layoutInflater)

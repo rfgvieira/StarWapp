@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/btnmenu"
+    android:layout_height="@dimen/btnmenu"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/roundedbtn"
     android:gravity="center"
     android:orientation="vertical">
     <ImageView
+        android:id="@+id/imv_gridicon"
         android:layout_width="@dimen/imglargeh"
         android:layout_height="@dimen/imglargeh"
         android:src="@drawable/starship"
@@ -14,12 +15,15 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
+        android:id="@+id/tv_busca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/busca"
         android:textSize="@dimen/txt_normal" />
 
     <TextView
+        android:textStyle="bold"
+        android:id="@+id/tv_titlegrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/espaconaves"

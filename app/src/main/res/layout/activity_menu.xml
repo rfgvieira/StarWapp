@@ -23,159 +23,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/txt_xlarge"
-        android:layout_marginTop="@dimen/normal"
+        android:layout_marginBottom="@dimen/normal"
         android:textAlignment="center"
         android:text="@string/escolhalado"
         android:textColor="@color/green"
-        app:layout_constraintBottom_toTopOf="@id/btn_nave"
+        app:layout_constraintBottom_toTopOf="@id/gv_gridmain"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <GridView
+        android:layout_marginHorizontal="@dimen/normal"
         android:id="@+id/gv_gridmain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:numColumns="2"
-        android:verticalSpacing="@dimen/normal"
-        android:horizontalSpacing="@dimen/normal"
+        android:layout_marginVertical="@dimen/normal"
+        android:verticalSpacing="@dimen/xnormal"
+        android:horizontalSpacing="@dimen/xxsmall"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tv_copyright"/>
 
-    <LinearLayout
-        android:id="@+id/btn_nave"
-        android:layout_width="@dimen/btnmenu"
-        android:layout_height="@dimen/btnmenu"
-        android:layout_marginTop="@dimen/large"
-        android:background="@drawable/roundedbtn"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/xsmall"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_marginBottom="@dimen/big"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_planeta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logomenu">
 
-        <ImageView
-            android:layout_width="@dimen/imglargeh"
-            android:layout_height="@dimen/imglargeh"
-            android:src="@drawable/starship" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/busca"
-            android:textSize="@dimen/txt_normal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/espaconaves"
-            android:textSize="@dimen/txt_normal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/btn_planeta"
-        android:layout_width="@dimen/btnmenu"
-        android:layout_height="@dimen/btnmenu"
-        android:layout_marginStart="@dimen/normal"
-        android:background="@drawable/roundedbtn"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/xsmall"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_marginEnd="@dimen/normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btn_nave">
-
-        <ImageView
-            android:layout_width="@dimen/imglargeh"
-            android:layout_height="@dimen/imglargeh"
-            android:src="@drawable/planet" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/busca"
-            android:textSize="@dimen/txt_normal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/planetas"
-            android:textSize="@dimen/txt_normal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/btn_personagem"
-        android:layout_width="@dimen/btnmenu"
-        android:layout_height="@dimen/btnmenu"
-        android:background="@drawable/roundedbtn"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="@dimen/xsmall"
-        android:layout_marginBottom="@dimen/large"
-        android:clickable="true"
-        android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_aleatorio"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:layout_width="@dimen/imglargeh"
-            android:layout_height="@dimen/imglargeh"
-            android:src="@drawable/luke" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/busca"
-            android:textSize="@dimen/txt_normal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/personagens"
-            android:textSize="@dimen/txt_normal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/btn_aleatorio"
-        android:layout_width="@dimen/btnmenu"
-        android:layout_height="@dimen/btnmenu"
-        android:background="@drawable/roundedbtnrand"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:clickable="true"
-        android:focusable="true"
-        android:padding="@dimen/xsmall"
-        android:layout_marginEnd="@dimen/normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_personagem">
-
-        <ImageView
-            android:layout_width="@dimen/imglargeh"
-            android:layout_height="@dimen/imglargeh"
-            android:src="@drawable/darthvader" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/busca"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt_normal" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/aleatorio"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt_normal" />
-    </LinearLayout>
     <TextView
         android:id="@+id/tv_copyright"
         android:layout_width="wrap_content"
