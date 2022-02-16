@@ -10,7 +10,9 @@ import android.widget.AdapterView
 import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityMenuBinding
 import com.example.activitystarwapp.databinding.PopupBinding
+import com.example.activitystarwapp.databinding.PopupRandBinding
 import com.example.activitystarwapp.presentation.adapter.GridAdapter
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMenuBinding
@@ -22,16 +24,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setUpAdapter()
         binding.gvGridmain.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-                if(position != 3)
-                    showPopUp(position)
-                else {
-                    val intent = Intent(this, RandomActivity::class.java)
-                    startActivity(intent)
-                }
-
+            if(position != 3)
+                showPopUp(position)
+            else {
+                showPopUpRand()
             }
-
-
+        }
     }
 
     private fun setUpAdapter(){
@@ -40,8 +38,30 @@ class MainActivity : AppCompatActivity() {
         val adapter = GridAdapter(this,arrayName, arrayImage)
         binding.gvGridmain.adapter = adapter
     }
-    private fun showPopUp(tipo: Int) {
 
+    private fun showPopUpRand(){
+        val bindingPopupBinding = PopupRandBinding.inflate(layoutInflater)
+        bindingPopupBinding.btnPopuplista.setOnClickListener {
+            val rand = (0..2).random()
+            redirectActivity(rand,0)
+        }
+
+        bindingPopupBinding.btnPopupitem.setOnClickListener {
+            val intent = Intent(this, RandomActivity::class.java)
+            startActivity(intent)
+        }
+
+        val dialog = BottomSheetDialog(this)
+        dialog.setCancelable(true)
+        val window = dialog.window
+        window?.let {
+            it.attributes.width = this.window.attributes.width
+            it.setBackgroundDrawable(getDrawable(R.drawable.popupbg))}
+        dialog.setContentView(bindingPopupBinding.root)
+        dialog.show()
+    }
+
+    private fun showPopUp(tipo: Int) {
         val bindingPopupBinding = PopupBinding.inflate(layoutInflater)
 
         bindingPopupBinding.btnPopuptudo.setOnClickListener {
@@ -52,18 +72,12 @@ class MainActivity : AppCompatActivity() {
             redirectActivity(tipo,1)
         }
 
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        val dialog = BottomSheetDialog(this)
         dialog.setCancelable(true)
-        dialog.setContentView(bindingPopupBinding.root)
-
-
         val window = dialog.window
         window?.let {
-            it.attributes.gravity = Gravity.BOTTOM
-            it.attributes.width = this.window.attributes.width
-            it.setBackgroundDrawable(getDrawable(R.drawable.roundedbtn))}
-
+            it.setBackgroundDrawable(getDrawable(R.drawable.popupbg))}
+        dialog.setContentView(bindingPopupBinding.root)
         dialog.show()
     }
 

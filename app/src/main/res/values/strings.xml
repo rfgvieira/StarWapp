@@ -10,6 +10,8 @@
     <string name="espaconaves"><b>Espaçonaves</b></string>
     <string name="aleatorio"><b>Aleatório</b></string>
     <string name="busca">Buscar</string>
+    <string name="buscaitem">BUSCA ITEM</string>
+    <string name="buscalista">BUSCA LISTA</string>
     <string name="buscatudo">BUSCAR TUDO</string>
     <string name="buscaunico">POR ID</string>
     <string name="idinput">Digite o Id</string>

@@ -14,5 +14,6 @@
     <color name="blue">#0004FF</color>
     <color name="brown">#4C2727</color>
     <color name="bluegray">#535368</color>
+    <color name="transparent">#00000000</color>
     <color name="background">#FF212121</color>
 </resources>

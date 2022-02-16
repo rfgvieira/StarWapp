@@ -15,7 +15,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-
             android:id="@+id/edt_searchbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,12 +25,13 @@
             android:paddingVertical="@dimen/xxsmall"
             android:background="@drawable/searchbar"
             android:textSize="@dimen/txt_normal"
+            android:textColor="@color/orange"
             android:hint="@string/exemplobusca" />
 
         <ImageView
             android:id="@+id/imv_buscaicon"
             android:layout_width="@dimen/imgnormal"
-            android:layout_height="@dimen/imgsmall"
+            android:layout_height="45dp"
             android:src="@drawable/lupa"
             android:padding="@dimen/small"
             android:background="@drawable/roundedbtn"

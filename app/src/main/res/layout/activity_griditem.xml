@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/busca"
-        android:textSize="@dimen/txt_normal" />
+        android:textSize="@dimen/txt_xnormal" />
 
     <TextView
         android:textStyle="bold"
@@ -27,6 +27,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/espaconaves"
-        android:textSize="@dimen/txt_normal" />
+        android:textSize="@dimen/txt_xnormal" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

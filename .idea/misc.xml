@@ -3,35 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/drawable/roundedbtn.xml" value="0.403125" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/drawable/roundedbtnpress.xml" value="0.403125" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/drawable/roundedbtnrand.xml" value="0.403125" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/drawable/roundeditem.xml" value="0.403125" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/drawable/searchbar.xml" value="0.2703125" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_base.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_basebusca.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_busca_starship.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_buscapersonagem.xml" value="0.2128623188405797" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_buscaplaneta.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_buscaunico.xml" value="0.33" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_griditem.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_menu.xml" value="0.25" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_personagemitem.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_random.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_slash.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_splash.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_starshipitem.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_todospersonagem.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_todosplanetas.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_todosstarships.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/popup.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/popupbg.xml" value="0.1953125" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/roundedbtn.xml" value="0.1953125" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/roundedbtnrand.xml" value="0.1953125" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/roundeditem.xml" value="0.1953125" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/searchbar.xml" value="0.1953125" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_basebusca.xml" value="0.4" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_buscaunico.xml" value="0.176" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_griditem.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_main.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_menu.xml" value="0.15625" />
-        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_personagemitem.xml" value="0.4" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_personagemitem.xml" value="0.2916666666666667" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_planetitem.xml" value="0.264" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_starshipitem.xml" value="0.264" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_todospersonagem.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_todosplanetas.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_todosstarships.xml" value="0.264" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/popup.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/popup_rand.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31614583333333335" />
       </map>
     </option>

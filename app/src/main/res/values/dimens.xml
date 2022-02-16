@@ -3,6 +3,7 @@
     <dimen name="xxsmall">2dp</dimen>
     <dimen name="xsmall">4dp</dimen>
     <dimen name="small">8dp</dimen>
+    <dimen name="xxnormal">10dp</dimen>
     <dimen name="xnormal">16dp</dimen>
     <dimen name="normal">24dp</dimen>
     <dimen name="xlarge">32dp</dimen>
@@ -23,6 +24,7 @@
     <dimen name="imgnormal">75dp</dimen>
     <dimen name="imglargeh">100dp</dimen>
     <dimen name="imglargew">250dp</dimen>
+    <dimen name="imglogomain">150dp</dimen>
 
     <dimen name="btnmenu">170dp</dimen>
 

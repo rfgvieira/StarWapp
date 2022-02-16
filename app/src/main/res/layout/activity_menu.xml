@@ -10,13 +10,14 @@
 
     <ImageView
         android:id="@+id/logomenu"
-        android:layout_height="@dimen/imglargeh"
-        android:layout_width="@dimen/imglargew"
+        android:layout_height="@dimen/imglogomain"
+        android:layout_width="@dimen/imglogomain"
         android:src="@drawable/splash"
         android:layout_marginTop="@dimen/xlarge"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/escolhamenu"/>
 
     <TextView
         android:id="@+id/escolhamenu"
