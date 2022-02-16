@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.Window
 import android.widget.AdapterView
+import androidx.appcompat.content.res.AppCompatResources
 import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityMenuBinding
 import com.example.activitystarwapp.databinding.PopupBinding
@@ -33,8 +34,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpAdapter(){
-        var arrayName = arrayListOf(R.string.espaconaves,R.string.planetas, R.string.personagens, R.string.aleatorio)
-        var arrayImage = arrayListOf(R.drawable.starship, R.drawable.planet, R.drawable.luke, R.drawable.darthvader)
+        val arrayName = arrayListOf(R.string.espaconaves,R.string.planetas, R.string.personagens, R.string.aleatorio)
+        val arrayImage = arrayListOf(R.drawable.starship, R.drawable.planet, R.drawable.luke, R.drawable.darthvader)
         val adapter = GridAdapter(this,arrayName, arrayImage)
         binding.gvGridmain.adapter = adapter
     }
@@ -55,7 +56,6 @@ class MainActivity : AppCompatActivity() {
         dialog.setCancelable(true)
         val window = dialog.window
         window?.let {
-            it.attributes.width = this.window.attributes.width
             it.setBackgroundDrawable(getDrawable(R.drawable.popupbg))}
         dialog.setContentView(bindingPopupBinding.root)
         dialog.show()
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         dialog.setCancelable(true)
         val window = dialog.window
         window?.let {
-            it.setBackgroundDrawable(getDrawable(R.drawable.popupbg))}
+            it.setBackgroundDrawable(AppCompatResources.getDrawable(this,R.drawable.popupbg))}
         dialog.setContentView(bindingPopupBinding.root)
         dialog.show()
     }

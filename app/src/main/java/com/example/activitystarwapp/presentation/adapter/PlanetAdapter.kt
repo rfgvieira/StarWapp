@@ -1,14 +1,17 @@
 package com.example.activitystarwapp.presentation.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.activitystarwapp.R
 import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.databinding.ActivityPlanetitemBinding
+import com.google.gson.Gson
 
-class PlanetAdapter (private  val planetList: List<PlanetsModel.Result>) :
+class PlanetAdapter (private val context : Context, private  val planetList: List<PlanetsModel.Result>) :
     RecyclerView.Adapter<PlanetAdapter.PlanetHolder>() {
     private  lateinit var binding: ActivityPlanetitemBinding
 

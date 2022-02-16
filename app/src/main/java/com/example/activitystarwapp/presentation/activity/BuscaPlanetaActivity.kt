@@ -51,7 +51,7 @@ class BuscaPlanetaActivity : BuscaBaseActivity() {
     }
 
     private fun setUpAdapter(planetList : List<PlanetsModel.Result>){
-        val adapter = PlanetAdapter(planetList)
+        val adapter = PlanetAdapter(this,planetList)
         binding.rvPlanet.adapter = adapter
         binding.rvPlanet.layoutManager =
             LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)

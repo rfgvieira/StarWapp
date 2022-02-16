@@ -12,11 +12,17 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
         binding = ActivityBaseBinding.inflate(layoutInflater)
         binding.imvVolta.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            volta()
         }
+    }
+
+     open fun volta() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     override fun setContentView(view: View) {
@@ -33,6 +39,10 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun setTitleActivity(idRes : Int){
         binding.tvTitle.text = getString(idRes)
+    }
+
+    fun setTitleActivity(text : String){
+        binding.tvTitle.text = text
     }
 
     fun setIconActivity(idRes: Int){

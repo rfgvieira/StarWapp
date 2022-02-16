@@ -12,6 +12,8 @@ import com.example.activitystarwapp.presentation.viewmodel.TodosPlanetasViewMode
 class TodosPlanetasActivity : BaseActivity() {
     private lateinit var binding : ActivityTodosplanetasBinding
     private lateinit var viewModel : TodosPlanetasViewModel
+    lateinit var listPlanet: List<PlanetsModel.Result>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +37,9 @@ class TodosPlanetasActivity : BaseActivity() {
 
     private fun initObservers() {
         viewModel.planetList.observe(this) {
-            setUpAdapterPlanet(it.results)
+            //val fragment = supportFragmentManager.findFragmentById(R.id.fl_todosplanetas)
+            //fragment.setUpAdapterPlanet(it.results)
+            loadCompleted()
         }
     }
 
@@ -43,12 +47,6 @@ class TodosPlanetasActivity : BaseActivity() {
         viewModel.getPlanets()
     }
 
-    private fun setUpAdapterPlanet(listPlanet: List<PlanetsModel.Result>) {
-        val adapter = PlanetAdapter(listPlanet)
-        binding.tvResultcounttodosplanet.text = getString(R.string.resultado) + listPlanet.count()
-        binding.rvPlanets.adapter = adapter
-        binding.rvPlanets.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        loadCompleted()
-    }
+
+
 }
