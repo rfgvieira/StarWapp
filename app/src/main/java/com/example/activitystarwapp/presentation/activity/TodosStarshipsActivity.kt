@@ -1,23 +1,15 @@
 package com.example.activitystarwapp.presentation.activity
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.activitystarwapp.R
-import com.example.activitystarwapp.data.model.StarshipModel
-import com.example.activitystarwapp.databinding.ActivityPlanetitemBinding
 import com.example.activitystarwapp.databinding.ActivityTodosstarshipsBinding
-import com.example.activitystarwapp.presentation.adapter.StarshipAdapter
-import com.example.activitystarwapp.presentation.viewmodel.TodosPlanetasViewModel
 import com.example.activitystarwapp.presentation.viewmodel.TodosStarshipsViewModel
 
 class TodosStarshipsActivity : BaseActivity() {
-
     private lateinit var binding : ActivityTodosstarshipsBinding
     private lateinit var viewModel : TodosStarshipsViewModel
+    private lateinit var starshipFragment: TodosStarshipFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +22,18 @@ class TodosStarshipsActivity : BaseActivity() {
         viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
         viewModel.setUpList()
 
+        starshipFragment = TodosStarshipFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_todosstarships,starshipFragment,"TodosStarship")
+            .commit()
+
         initObservers()
+        getData()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        starshipFragment.clearRv()
         getData()
     }
 
@@ -39,24 +42,24 @@ class TodosStarshipsActivity : BaseActivity() {
         setIconActivity(R.drawable.starship)
     }
 
-    private fun getData() {
-        viewModel.getStarships()
-    }
-
     private fun initObservers() {
         viewModel.starshipList.observe(this) {
-            setUpAdapterStarship(it.results)
+            starshipFragment.setUpAdapterStarship(it.results)
+            loadCompleted()
         }
     }
 
-    private fun setUpAdapterStarship(listStarship: List<StarshipModel.Result>) {
-        val adapter = StarshipAdapter(listStarship)
-        binding.tvResultcounttodosship.text =  getString(R.string.resultado) + listStarship.count()
-        binding.rvStarship.adapter = adapter
-        binding.rvStarship.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        loadCompleted()
+    fun setUpItemFragment(position: Int) {
+        viewModel.starshipList.value?.let {
+            val fragmentItem = ItemPlanetFragment(position, it.results)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fl_todosstarships, fragmentItem, "ItemPlanetas")
+                .commit()
+        }
     }
 
-
+    private fun getData() {
+        loadStart()
+        viewModel.getStarships()
+    }
 }

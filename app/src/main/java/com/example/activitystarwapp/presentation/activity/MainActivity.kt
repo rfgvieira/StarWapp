@@ -42,15 +42,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun showPopUpRand(){
         val bindingPopupBinding = PopupRandBinding.inflate(layoutInflater)
-        bindingPopupBinding.btnPopuplista.setOnClickListener {
-            val rand = (0..2).random()
-            redirectActivity(rand,0)
-        }
-
-        bindingPopupBinding.btnPopupitem.setOnClickListener {
-            val intent = Intent(this, RandomActivity::class.java)
-            startActivity(intent)
-        }
 
         val dialog = BottomSheetDialog(this)
         dialog.setCancelable(true)
@@ -58,19 +49,26 @@ class MainActivity : AppCompatActivity() {
         window?.let {
             it.setBackgroundDrawable(getDrawable(R.drawable.popupbg))}
         dialog.setContentView(bindingPopupBinding.root)
+
+        bindingPopupBinding.btnPopuplista.setOnClickListener {
+            val rand = (0..2).random()
+            redirectActivity(rand,0)
+            dialog.dismiss()
+        }
+
+        bindingPopupBinding.btnPopupitem.setOnClickListener {
+            val intent = Intent(this, RandomActivity::class.java)
+            startActivity(intent)
+            dialog.dismiss()
+        }
+
         dialog.show()
     }
 
     private fun showPopUp(tipo: Int) {
         val bindingPopupBinding = PopupBinding.inflate(layoutInflater)
 
-        bindingPopupBinding.btnPopuptudo.setOnClickListener {
-            redirectActivity(tipo,0)
-        }
 
-        bindingPopupBinding.btnPopupid.setOnClickListener {
-            redirectActivity(tipo,1)
-        }
 
         val dialog = BottomSheetDialog(this)
         dialog.setCancelable(true)
@@ -78,6 +76,17 @@ class MainActivity : AppCompatActivity() {
         window?.let {
             it.setBackgroundDrawable(AppCompatResources.getDrawable(this,R.drawable.popupbg))}
         dialog.setContentView(bindingPopupBinding.root)
+
+        bindingPopupBinding.btnPopuptudo.setOnClickListener {
+            redirectActivity(tipo,0)
+            dialog.dismiss()
+        }
+
+        bindingPopupBinding.btnPopupid.setOnClickListener {
+            redirectActivity(tipo,1)
+            dialog.dismiss()
+        }
+
         dialog.show()
     }
 

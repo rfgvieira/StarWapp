@@ -12,6 +12,7 @@ import com.example.activitystarwapp.presentation.viewmodel.TodosPersonagensViewM
 class TodosPersonagensActivity : BaseActivity() {
     private lateinit var binding: ActivityTodospersonagemBinding
     private lateinit var viewModel: TodosPersonagensViewModel
+    private lateinit var todosPersonagemFragment: TodosPersonagemFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +25,11 @@ class TodosPersonagensActivity : BaseActivity() {
         viewModel = ViewModelProvider(this).get(TodosPersonagensViewModel::class.java)
         viewModel.setUpList()
 
+        todosPersonagemFragment = TodosPersonagemFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_todospersonagens,todosPersonagemFragment,"TodosPersonagens")
+            .commit()
+
         initObservers()
         getData()
     }
@@ -32,26 +38,35 @@ class TodosPersonagensActivity : BaseActivity() {
         setTitleActivity(R.string.personagens)
         setIconActivity(R.drawable.luke)
     }
+    override fun onResume() {
+        super.onResume()
+        todosPersonagemFragment.clearRv()
+        getData()
+    }
+
 
     private fun initObservers() {
         viewModel.characterList.observe(this) {
-            setUpAdapterCharacter(it.results)
+            todosPersonagemFragment.setUpAdapterCharacter(it.results)
+            loadCompleted()
+        }
+    }
+
+    fun setUpItemFragment(position: Int) {
+        viewModel.characterList.value?.let {
+            val fragmentItem = ItemPlanetFragment(position, it.results)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fl_todospersonagens, fragmentItem, "ItemPlanetas")
+                .commit()
         }
     }
 
     private fun getData() {
+        loadStart()
         viewModel.getCharacter()
     }
 
-    private fun setUpAdapterCharacter(listCharacter: List<CharacterModel.Result>) {
-        val adapter = CharacterAdapter(listCharacter, this)
-        binding.tvResultcounttodospers.text = getString(R.string.resultado) + listCharacter.count()
-        binding.rvPersonagens.adapter = adapter
-        binding.rvPersonagens.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        loadCompleted()
 
-    }
 
 
 

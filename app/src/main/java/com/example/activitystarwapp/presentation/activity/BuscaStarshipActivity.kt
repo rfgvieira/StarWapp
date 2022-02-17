@@ -3,6 +3,8 @@ package com.example.activitystarwapp.presentation.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -12,10 +14,12 @@ import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.databinding.ActivityBuscaStarshipBinding
 import com.example.activitystarwapp.presentation.adapter.StarshipAdapter
 import com.example.activitystarwapp.presentation.viewmodel.TodosStarshipsViewModel
+import kotlinx.coroutines.delay
 
 class BuscaStarshipActivity : BuscaBaseActivity() {
     private lateinit var binding : ActivityBuscaStarshipBinding
     private lateinit var viewModel: TodosStarshipsViewModel
+    private lateinit var starshipFragment: TodosStarshipFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +30,17 @@ class BuscaStarshipActivity : BuscaBaseActivity() {
         viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
         viewModel.setUpList()
 
+        starshipFragment = TodosStarshipFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_buscastarships,starshipFragment,"TodosStarship")
+            .commit()
+
         initObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        starshipFragment.clearRv()
         getData()
     }
 
@@ -37,21 +51,31 @@ class BuscaStarshipActivity : BuscaBaseActivity() {
 
 
     private fun getData() {
-        viewModel.getStarships()
+        loadStart()
+        val timer = object : CountDownTimer(2500,1000){
+            override fun onTick(p0: Long) { }
+            override fun onFinish() {
+                viewModel.getStarships()
+            }
+        }
+        timer.start()
+
     }
 
     private fun initObservers() {
         viewModel.starshipList.observe(this) {
-            setUpAdapterStarship(it.results)
+            starshipFragment.setUpAdapterStarship(it.results)
+            loadCompleted()
         }
     }
 
-    private fun setUpAdapterStarship(listStarship: List<StarshipModel.Result>) {
-        val adapter = StarshipAdapter(listStarship)
-        binding.rvShip.adapter = adapter
-        binding.rvShip.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        loadCompleted()
+    fun setUpItemFragment(position: Int) {
+        viewModel.starshipList.value?.let {
+            val fragmentItem = ItemPlanetFragment(position, it.results)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fl_buscastarships, fragmentItem, "ItemPlanetas")
+                .commit()
+        }
     }
 
     override fun searchId() {
@@ -61,7 +85,7 @@ class BuscaStarshipActivity : BuscaBaseActivity() {
             } else if(id.toInt() > it.results.size ){
                 Toast.makeText(this,R.string.avisoforarange, Toast.LENGTH_LONG)
             }  else {
-                setUpAdapterStarship(listOf(it.results[id.toInt()-1]))
+                starshipFragment.setUpAdapterStarship(listOf(it.results[id.toInt()-1]))
             }
         }
     }

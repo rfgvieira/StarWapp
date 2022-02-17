@@ -9,10 +9,9 @@ import com.example.activitystarwapp.databinding.ActivityBaseBinding
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var binding : ActivityBaseBinding
+    var flag = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
 
         binding = ActivityBaseBinding.inflate(layoutInflater)
         binding.imvVolta.setOnClickListener {
@@ -31,12 +30,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-
-    override fun onResume() {
-        super.onResume()
-        binding.pbLoading.visibility = View.VISIBLE
-    }
-
     fun setTitleActivity(idRes : Int){
         binding.tvTitle.text = getString(idRes)
     }
@@ -47,6 +40,10 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun setIconActivity(idRes: Int){
         binding.mainicon.setImageResource(idRes)
+    }
+
+    fun loadStart(){
+        binding.pbLoading.visibility = View.VISIBLE
     }
 
     fun loadCompleted(){

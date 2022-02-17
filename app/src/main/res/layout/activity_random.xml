@@ -4,66 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/small"
+
     android:background="@color/background"
     tools:context=".presentation.activity.RandomActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_randomitem"
+    <FrameLayout
+        android:id="@+id/fl_random"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="@dimen/xnormal"
-        android:layout_marginTop="@dimen/large"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/small">
+        android:layout_height="match_parent"/>
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/imv_randicon"
-                android:layout_width="@dimen/imgsmall"
-                android:layout_height="@dimen/imgsmall"
-                android:src="@drawable/luke"
-                app:civ_border_color="@color/black"
-                app:civ_border_width="@dimen/xsmall"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
-
-            <TextView
-                android:id="@+id/tv_randname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/txt_normal"
-                android:layout_marginStart="@dimen/normal"
-                tools:text = "Luke Skywalker"
-                android:textColor="@color/orange"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imv_randicon"/>
-
-            <TextView
-                android:id="@+id/tv_randatr1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/normal"
-                android:textSize="@dimen/txt_xnormal"
-                tools:text="Altura: 1,72"
-                app:layout_constraintTop_toBottomOf="@id/tv_randname"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imv_randicon"/>
-
-            <TextView
-                android:id="@+id/tv_randatr2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/txt_xnormal"
-                android:layout_marginStart="@dimen/normal"
-                tools:text="Cor do cabelo: Preto"
-                app:layout_constraintStart_toEndOf="@id/imv_randicon"
-                app:layout_constraintTop_toBottomOf="@id/tv_randatr1"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

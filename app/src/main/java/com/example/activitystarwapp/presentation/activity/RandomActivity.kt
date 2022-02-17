@@ -14,6 +14,7 @@ import com.example.activitystarwapp.presentation.viewmodel.RandomViewModel
 class RandomActivity : BaseActivity() {
     private lateinit var binding: ActivityRandomBinding
     private lateinit var viewModel: RandomViewModel
+    private lateinit var fragmentRandomFragment: RandomFragment
     private val rand = (0..2).random()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,12 @@ class RandomActivity : BaseActivity() {
 
         viewModel = ViewModelProvider(this).get(RandomViewModel::class.java)
 
-        binding.cvRandomitem.visibility = View.GONE
+        fragmentRandomFragment = RandomFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_random,fragmentRandomFragment,"Random")
+            .commit()
+
+
         setUpActivity(rand)
     }
 
@@ -49,59 +55,30 @@ class RandomActivity : BaseActivity() {
 
     private fun initObserveCharacter() {
         viewModel.characterList.observe(this, {
-            bindValues(it.name, it.height, it.eye_Color)
+            fragmentRandomFragment.bindValues(it.name, it.height, it.eye_Color,rand,listOf(it))
+            loadCompleted()
         })
     }
 
     private fun initObservePlanet() {
         viewModel.planetList.observe(this, {
-            bindValues(it.name, it.diameter, it.population)
+            fragmentRandomFragment.bindValues(it.name, it.diameter, it.population,rand,listOf(it))
+            loadCompleted()
         })
     }
 
     private fun initObserveStarship() {
         viewModel.starshipList.observe(this, {
-            bindValues(it.name, it.crew, it.passengers)
+            fragmentRandomFragment.bindValues(it.name, it.crew, it.passengers,rand,listOf(it))
+            loadCompleted()
         })
     }
 
-    private fun bindValues(name: String, attr1 : String, attr2 : String) {
-
-        loadCompleted()
-        binding.cvRandomitem.visibility = View.VISIBLE
-        var attr1Name = ""
-        var attr2Name = ""
-        var attr1Extra = ""
-
-        when(rand){
-            0 -> {
-                setTitleActivity(R.string.personagens)
-                setIconActivity(R.drawable.luke)
-                binding.imvRandicon.setImageResource(R.drawable.luke)
-                attr1Name = "Altura: "
-                attr1Extra = " m"
-                attr2Name = "Cor dos Olhos: "}
-            1 -> {
-                setTitleActivity(R.string.planetas)
-                setIconActivity(R.drawable.planet)
-                binding.imvRandicon.setImageResource(R.drawable.planet)
-                attr1Name = "Diametro: "
-                attr1Extra = " km"
-                attr2Name = "População: "}
-            2 -> {
-                setTitleActivity(R.string.espaconaves)
-                setIconActivity(R.drawable.starship)
-                binding.imvRandicon.setImageResource(R.drawable.starship)
-                attr1Name = "Tripulação: "
-                attr2Name = "Passageiros: "}
-        }
-
-        binding.tvRandname.text = name
-        if (rand == 0 )
-            binding.tvRandatr1.text = attr1Name + (attr1.toDouble()/100).toString() + attr1Extra
-        else
-            binding.tvRandatr1.text = attr1Name + attr1+ attr1Extra
-        binding.tvRandatr2.text = attr2Name + attr2
-
+    fun setUpItemFragment(item :List<*>) {
+        val fragmentItem = ItemPlanetFragment(-1, item)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_random, fragmentItem, "ItemPlanetas")
+            .commit()
     }
+
 }

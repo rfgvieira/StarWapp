@@ -9,6 +9,9 @@
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/roundeditem.xml" value="0.1953125" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/searchbar.xml" value="0.1953125" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_basebusca.xml" value="0.4" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_busca_starship.xml" value="0.1" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_buscapersonagem.xml" value="0.1" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_buscaplaneta.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_buscaunico.xml" value="0.176" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_griditem.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_item.xml" value="0.13768115942028986" />
@@ -21,8 +24,12 @@
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_todospersonagem.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_todosplanetas.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_todosstarships.xml" value="0.264" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_detalhe.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_detalhe_planet.xml" value="0.264" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_random.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_todospersonagens.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_todosplanets.xml" value="0.1" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_todosstarships.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/popup.xml" value="0.4" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/popup_rand.xml" value="0.13768115942028986" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31614583333333335" />

@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityPersonagemitemBinding
+import com.example.activitystarwapp.presentation.activity.BuscaPersonagemActivity
+import com.example.activitystarwapp.presentation.activity.TodosPersonagensActivity
 
 class CharacterAdapter(private val characterList: List<CharacterModel.Result>, context: Context) :
     RecyclerView.Adapter<CharacterAdapter.CharacterHolder>() {
@@ -25,15 +27,22 @@ class CharacterAdapter(private val characterList: List<CharacterModel.Result>, c
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
         val characterItem = characterList[position]
         with(characterItem){
-            with(Resources.getSystem()){
+
                 binding.tvCharactername.text = name
                 binding.tvCharacterheight.text ="Altura: "+ height
                 binding.tvCharacterolho.text = "Cor dos Olhos: " + eye_Color
             }
+            binding.clPersonagemitem.setOnClickListener {
+                if(cont is TodosPersonagensActivity)
+                    cont.setUpItemFragment(position)
+                else
+                    (cont as BuscaPersonagemActivity).setUpItemFragment(position)
+
+            }
 
 
 //            setEyeColor(eye_Color)
-        }
+
     }
 
 //    private fun setEyeColor(eyeColor: String){

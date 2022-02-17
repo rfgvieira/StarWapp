@@ -22,14 +22,17 @@ class TodosPlanetsFragment : Fragment() {
         return binding.root
     }
 
-     fun setUpAdapterPlanet(listPlanet: List<PlanetsModel.Result>) {
+     fun setUpAdapterPlanet(listPlanet: List<PlanetsModel.Result>,) {
          context?.let {
              val adapter = PlanetAdapter(it, listPlanet)
-            binding.tvResultcounttodosplanet.text = getString(R.string.resultado) + listPlanet.count()
-            binding.rvPlanets.adapter = adapter
-            binding.rvPlanets.layoutManager =
+             binding.tvResultcounttodosplanet.text = getString(R.string.resultado) + listPlanet.count()
+             binding.rvPlanets.adapter = adapter
+             binding.rvPlanets.layoutManager =
                 LinearLayoutManager(it, LinearLayoutManager.VERTICAL, false)
         }
+    }
 
+    fun clearRv(){
+        binding.rvPlanets.adapter = null
     }
 }

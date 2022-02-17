@@ -1,15 +1,13 @@
 package com.example.activitystarwapp.presentation.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.databinding.ActivityPlanetitemBinding
-import com.google.gson.Gson
+import com.example.activitystarwapp.presentation.activity.BuscaPlanetaActivity
+import com.example.activitystarwapp.presentation.activity.TodosPlanetasActivity
 
 class PlanetAdapter (private val context : Context, private  val planetList: List<PlanetsModel.Result>) :
     RecyclerView.Adapter<PlanetAdapter.PlanetHolder>() {
@@ -22,7 +20,7 @@ class PlanetAdapter (private val context : Context, private  val planetList: Lis
 
     override fun onBindViewHolder(holder: PlanetHolder, position: Int) {
         with(planetList[position]){
-            with(Resources.getSystem()){
+
                 binding.tvNomeplanet.text =name
                 binding.tvDiametroplanet.text = "Diametro: ${diameter} km"
                         if(population != "unknown") {
@@ -36,7 +34,13 @@ class PlanetAdapter (private val context : Context, private  val planetList: Lis
                         }
                         else
                             binding.tvPopulationplanet.text = "População: ${population}"
-            }
+
+                binding.clPlanetitem.setOnClickListener {
+                    if(context is TodosPlanetasActivity)
+                        context.setUpItemFragment(position)
+                    else
+                        (context as BuscaPlanetaActivity).setUpItemFragment(position)
+                }
         }
     }
 

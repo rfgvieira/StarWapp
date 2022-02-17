@@ -16,6 +16,7 @@ import com.example.activitystarwapp.presentation.viewmodel.TodosPersonagensViewM
 class BuscaPersonagemActivity : BuscaBaseActivity() {
     private lateinit var binding: ActivityBuscapersonagemBinding
     private lateinit var viewModel: TodosPersonagensViewModel
+    private lateinit var todosPersonagemFragment: TodosPersonagemFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBuscapersonagemBinding.inflate(layoutInflater)
@@ -24,7 +25,19 @@ class BuscaPersonagemActivity : BuscaBaseActivity() {
 
         viewModel = ViewModelProvider(this).get(TodosPersonagensViewModel :: class.java)
         viewModel.setUpList()
+
+        todosPersonagemFragment = TodosPersonagemFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_buscapersonagens,todosPersonagemFragment,"TodosPersonagens")
+            .commit()
+
         initObserver()
+        getData()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        todosPersonagemFragment.clearRv()
         getData()
     }
 
@@ -35,20 +48,23 @@ class BuscaPersonagemActivity : BuscaBaseActivity() {
 
     private fun initObserver() {
         viewModel.characterList.observe(this) {
-            setUpAdapterCharacter(it.results)
+            todosPersonagemFragment.setUpAdapterCharacter(it.results)
+            loadCompleted()
         }
     }
 
     private fun getData() {
+        loadStart()
         viewModel.getCharacter()
     }
 
-    private fun setUpAdapterCharacter(listCharacter: List<CharacterModel.Result>) {
-        val adapter = CharacterAdapter(listCharacter, this)
-        binding.rvPersonagens.adapter = adapter
-        binding.rvPersonagens.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        loadCompleted()
+    fun setUpItemFragment(position: Int) {
+        viewModel.characterList.value?.let {
+            val fragmentItem = ItemPlanetFragment(position, it.results)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fl_buscapersonagens, fragmentItem, "ItemPlanetas")
+                .commit()
+        }
     }
 
     override fun searchId() {
@@ -58,7 +74,7 @@ class BuscaPersonagemActivity : BuscaBaseActivity() {
             } else if(id.toInt() > it.results.size ){
                 Toast.makeText(this,R.string.avisoforarange,Toast.LENGTH_SHORT)
             }  else {
-                setUpAdapterCharacter(listOf(it.results[id.toInt()-1]))
+                todosPersonagemFragment.setUpAdapterCharacter(listOf(it.results[id.toInt()-1]))
             }
         }
 

@@ -1,5 +1,6 @@
 package com.example.activitystarwapp.presentation.adapter
 
+import android.content.Context
 import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.activitystarwapp.R
 import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.databinding.ActivityStarshipitemBinding
+import com.example.activitystarwapp.presentation.activity.BuscaStarshipActivity
+import com.example.activitystarwapp.presentation.activity.TodosStarshipsActivity
 
-class StarshipAdapter (private val starshipList: List<StarshipModel.Result>) : RecyclerView.Adapter<StarshipAdapter.StarshipHolder> (){
+class StarshipAdapter (private val starshipList: List<StarshipModel.Result>, private val context: Context) : RecyclerView.Adapter<StarshipAdapter.StarshipHolder> (){
 
     private lateinit var binding : ActivityStarshipitemBinding
 
@@ -19,13 +22,19 @@ class StarshipAdapter (private val starshipList: List<StarshipModel.Result>) : R
 
     override fun onBindViewHolder(holder: StarshipHolder, position: Int) {
         with(starshipList[position]){
-            with(Resources.getSystem()){
-                binding.tvNomenave.text = name
-                binding.tvTripulacaonave.text = "Tripulação ${crew}"
-                    if(passengers == "n/a")
-                        binding.tvPassageirosnave.text = "Passageiros: " + 0
-                    else
-                        binding.tvPassageirosnave.text = "Passageiros: " + passengers
+
+            binding.tvNomenave.text = name
+            binding.tvTripulacaonave.text = "Tripulação ${crew}"
+                if(passengers == "n/a")
+                    binding.tvPassageirosnave.text = "Passageiros: " + 0
+                else
+                    binding.tvPassageirosnave.text = "Passageiros: " + passengers
+
+            binding.clStarshipitem.setOnClickListener {
+                if(context is TodosStarshipsActivity)
+                    context.setUpItemFragment(position)
+                else
+                    (context as BuscaStarshipActivity).setUpItemFragment(position)
             }
 
         }

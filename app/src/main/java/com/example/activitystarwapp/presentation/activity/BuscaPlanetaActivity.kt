@@ -1,25 +1,16 @@
 package com.example.activitystarwapp.presentation.activity
 
-import android.content.Intent
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Adapter
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.activitystarwapp.R
-import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.databinding.ActivityBuscaplanetaBinding
-import com.example.activitystarwapp.presentation.adapter.PlanetAdapter
 import com.example.activitystarwapp.presentation.viewmodel.TodosPlanetasViewModel
 
 class BuscaPlanetaActivity : BuscaBaseActivity() {
     private lateinit var binding : ActivityBuscaplanetaBinding
     private lateinit var viewModel: TodosPlanetasViewModel
-
+    private lateinit var todosPlanetsFragment : TodosPlanetsFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,9 +20,19 @@ class BuscaPlanetaActivity : BuscaBaseActivity() {
 
         viewModel = ViewModelProvider(this).get(TodosPlanetasViewModel::class.java)
         viewModel.setUpList()
-        initObserver()
-        getData()
 
+        todosPlanetsFragment = TodosPlanetsFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fl_buscaplanets,todosPlanetsFragment,"TodosPlanetas")
+            .commit()
+
+        initObserver()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        todosPlanetsFragment.clearRv()
+        getData()
     }
 
     private fun initializeView() {
@@ -39,25 +40,26 @@ class BuscaPlanetaActivity : BuscaBaseActivity() {
         setIconActivity(R.drawable.planet)
     }
 
-
     private fun initObserver() {
         viewModel.planetList.observe(this, {
-            setUpAdapter(it.results)
+            todosPlanetsFragment.setUpAdapterPlanet(it.results)
+            loadCompleted()
         })
     }
 
+    fun setUpItemFragment(position: Int) {
+        viewModel.planetList.value?.let {
+            val fragmentItem = ItemPlanetFragment(position,it.results)
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fl_buscaplanets, fragmentItem, "ItemPlanetas")
+                .commit()
+        }
+    }
+
     private fun getData() {
+        loadStart()
         viewModel.getPlanets()
     }
-
-    private fun setUpAdapter(planetList : List<PlanetsModel.Result>){
-        val adapter = PlanetAdapter(this,planetList)
-        binding.rvPlanet.adapter = adapter
-        binding.rvPlanet.layoutManager =
-            LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        loadCompleted()
-    }
-
     override fun searchId() {
         viewModel.planetList.value?.let {
             if(id.isEmpty()){
@@ -65,7 +67,7 @@ class BuscaPlanetaActivity : BuscaBaseActivity() {
             } else if(id.toInt() > it.results.size ){
                 Toast.makeText(this,R.string.avisoforarange, Toast.LENGTH_SHORT).show()
             }  else {
-                setUpAdapter(listOf(it.results[id.toInt()-1]))
+                todosPlanetsFragment.setUpAdapterPlanet(listOf(it.results[id.toInt()-1]))
             }
         }
     }
