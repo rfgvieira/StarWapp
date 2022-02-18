@@ -1,22 +1,16 @@
 package com.example.activitystarwapp.presentation.activity
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.activitystarwapp.R
-import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.databinding.ActivityBuscapersonagemBinding
-import com.example.activitystarwapp.presentation.adapter.CharacterAdapter
 import com.example.activitystarwapp.presentation.viewmodel.TodosPersonagensViewModel
 
-class BuscaPersonagemActivity : BuscaBaseActivity() {
+class BuscaPersonagemActivity : BaseActivity() {
     private lateinit var binding: ActivityBuscapersonagemBinding
     private lateinit var viewModel: TodosPersonagensViewModel
-    private lateinit var todosPersonagemFragment: TodosPersonagemFragment
+    private lateinit var todosFragment: TodosFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBuscapersonagemBinding.inflate(layoutInflater)
@@ -26,9 +20,9 @@ class BuscaPersonagemActivity : BuscaBaseActivity() {
         viewModel = ViewModelProvider(this).get(TodosPersonagensViewModel :: class.java)
         viewModel.setUpList()
 
-        todosPersonagemFragment = TodosPersonagemFragment()
+        todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_buscapersonagens,todosPersonagemFragment,"TodosPersonagens")
+            .replace(R.id.fl_buscapersonagens,todosFragment,"TodosPersonagens")
             .commit()
 
         initObserver()
@@ -37,7 +31,7 @@ class BuscaPersonagemActivity : BuscaBaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        todosPersonagemFragment.clearRv()
+        todosFragment.clearRv()
         getData()
     }
 
@@ -48,7 +42,7 @@ class BuscaPersonagemActivity : BuscaBaseActivity() {
 
     private fun initObserver() {
         viewModel.characterList.observe(this) {
-            todosPersonagemFragment.setUpAdapterCharacter(it.results)
+            todosFragment.setUpAdapter(it.results)
             loadCompleted()
         }
     }
@@ -60,11 +54,15 @@ class BuscaPersonagemActivity : BuscaBaseActivity() {
 
     fun setUpItemFragment(position: Int) {
         viewModel.characterList.value?.let {
-            val fragmentItem = ItemPlanetFragment(position, it.results)
+            val fragmentItem = ItemFragment(position, it.results)
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fl_buscapersonagens, fragmentItem, "ItemPlanetas")
+                .replace(R.id.fl_buscapersonagens, fragmentItem, "Item")
                 .commit()
         }
+    }
+
+    override fun volta() {
+        supportFragmentManager.fragments
     }
 
     override fun searchId() {
@@ -74,7 +72,7 @@ class BuscaPersonagemActivity : BuscaBaseActivity() {
             } else if(id.toInt() > it.results.size ){
                 Toast.makeText(this,R.string.avisoforarange,Toast.LENGTH_SHORT)
             }  else {
-                todosPersonagemFragment.setUpAdapterCharacter(listOf(it.results[id.toInt()-1]))
+                todosFragment.setUpAdapter(listOf(it.results[id.toInt()-1]))
             }
         }
 

@@ -7,10 +7,11 @@ import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityBuscaplanetaBinding
 import com.example.activitystarwapp.presentation.viewmodel.TodosPlanetasViewModel
 
-class BuscaPlanetaActivity : BuscaBaseActivity() {
+class BuscaPlanetaActivity : BaseActivity() {
     private lateinit var binding : ActivityBuscaplanetaBinding
     private lateinit var viewModel: TodosPlanetasViewModel
-    private lateinit var todosPlanetsFragment : TodosPlanetsFragment
+    private var todosFragment = TodosFragment()
+    private var flag = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,17 +22,14 @@ class BuscaPlanetaActivity : BuscaBaseActivity() {
         viewModel = ViewModelProvider(this).get(TodosPlanetasViewModel::class.java)
         viewModel.setUpList()
 
-        todosPlanetsFragment = TodosPlanetsFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_buscaplanets,todosPlanetsFragment,"TodosPlanetas")
-            .commit()
+        setUpTodosFragment()
 
         initObserver()
     }
 
     override fun onResume() {
         super.onResume()
-        todosPlanetsFragment.clearRv()
+        todosFragment.clearRv()
         getData()
     }
 
@@ -42,15 +40,25 @@ class BuscaPlanetaActivity : BuscaBaseActivity() {
 
     private fun initObserver() {
         viewModel.planetList.observe(this, {
-            todosPlanetsFragment.setUpAdapterPlanet(it.results)
+            todosFragment.setUpAdapter(it.results)
             loadCompleted()
         })
     }
 
+    fun setUpTodosFragment(){
+        supportFragmentManager.beginTransaction()
+            .addToBackStack(null)
+            .replace(R.id.fl_buscaplanets,todosFragment,"TodosPlanetas")
+            .commit()
+        flag = 0
+    }
+
     fun setUpItemFragment(position: Int) {
+        flag = 1
         viewModel.planetList.value?.let {
-            val fragmentItem = ItemPlanetFragment(position,it.results)
+            val fragmentItem = ItemFragment(position,it.results)
             supportFragmentManager.beginTransaction()
+                .addToBackStack(null)
                 .replace(R.id.fl_buscaplanets, fragmentItem, "ItemPlanetas")
                 .commit()
         }
@@ -67,9 +75,16 @@ class BuscaPlanetaActivity : BuscaBaseActivity() {
             } else if(id.toInt() > it.results.size ){
                 Toast.makeText(this,R.string.avisoforarange, Toast.LENGTH_SHORT).show()
             }  else {
-                todosPlanetsFragment.setUpAdapterPlanet(listOf(it.results[id.toInt()-1]))
+                todosFragment.setUpAdapter(listOf(it.results[id.toInt()-1]))
             }
         }
+    }
+
+    override fun volta() {
+        if(flag == 1){
+            supportFragmentManager.popBackStack()
+        } else if (flag == 0)
+            super.volta()
     }
 
 }

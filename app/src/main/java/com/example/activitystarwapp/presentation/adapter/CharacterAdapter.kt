@@ -24,6 +24,10 @@ class CharacterAdapter(private val characterList: List<CharacterModel.Result>, c
         return CharacterHolder()
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
     override fun onBindViewHolder(holder: CharacterHolder, position: Int) {
         val characterItem = characterList[position]
         with(characterItem){

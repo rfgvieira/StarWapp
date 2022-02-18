@@ -3,28 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/small"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-    android:id="@+id/tv_resultcounttodospers"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="@dimen/txt_xnormal"
-    android:textColor="@color/white"
-    tools:text="33 Resultados"
-    android:layout_marginTop="@dimen/xnormal"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintBottom_toTopOf="@id/rv_personagens"/>
+        android:id="@+id/tv_resultcounttodosplanet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_xnormal"
+        android:textColor="@color/white"
+        tools:text="33 Resultados"
+        android:layout_marginTop="@dimen/xnormal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_personagens"
+        android:id="@+id/rv_planets"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_resultcounttodosplanet"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

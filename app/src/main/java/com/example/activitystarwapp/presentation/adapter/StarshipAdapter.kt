@@ -20,6 +20,10 @@ class StarshipAdapter (private val starshipList: List<StarshipModel.Result>, pri
         return StarshipHolder()
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
     override fun onBindViewHolder(holder: StarshipHolder, position: Int) {
         with(starshipList[position]){
 

@@ -1,13 +1,8 @@
 package com.example.activitystarwapp.presentation.activity
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.activitystarwapp.R
-import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.databinding.ActivityRandomBinding
 import com.example.activitystarwapp.presentation.viewmodel.RandomViewModel
 
@@ -21,6 +16,7 @@ class RandomActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRandomBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        hideSearch()
         initializeView()
 
         viewModel = ViewModelProvider(this).get(RandomViewModel::class.java)
@@ -29,7 +25,6 @@ class RandomActivity : BaseActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fl_random,fragmentRandomFragment,"Random")
             .commit()
-
 
         setUpActivity(rand)
     }
@@ -75,10 +70,11 @@ class RandomActivity : BaseActivity() {
     }
 
     fun setUpItemFragment(item :List<*>) {
-        val fragmentItem = ItemPlanetFragment(-1, item)
+        val fragmentItem = ItemFragment(-1, item)
         supportFragmentManager.beginTransaction()
             .replace(R.id.fl_random, fragmentItem, "ItemPlanetas")
             .commit()
     }
 
+    override fun searchId() { }
 }

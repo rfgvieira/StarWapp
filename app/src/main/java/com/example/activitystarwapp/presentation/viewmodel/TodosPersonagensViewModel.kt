@@ -19,6 +19,8 @@ class TodosPersonagensViewModel: ViewModel() {
         characterList.value = CharacterModel.Response(0, "", null, listOf())
     }
 
+
+
     fun getCharacter(){
         characterList.value = CharacterModel.Response(0, "", null, listOf())
 

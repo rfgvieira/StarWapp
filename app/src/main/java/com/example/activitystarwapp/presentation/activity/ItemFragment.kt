@@ -10,7 +10,7 @@ import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.databinding.FragmentDetalheBinding
 
-class ItemPlanetFragment(private val position: Int, private val results: List<*>) : Fragment() {
+class ItemFragment(private val position: Int, private val results: List<*>) : Fragment() {
     private lateinit var binding : FragmentDetalheBinding
     override fun onCreateView(
         inflater: LayoutInflater,

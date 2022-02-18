@@ -8,6 +8,7 @@
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/roundedbtnrand.xml" value="0.1953125" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/roundeditem.xml" value="0.1953125" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/searchbar.xml" value="0.1953125" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_base.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_basebusca.xml" value="0.4" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_busca_starship.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/activity_buscapersonagem.xml" value="0.1" />
@@ -27,6 +28,7 @@
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_detalhe.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_detalhe_planet.xml" value="0.264" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_random.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_todos.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_todospersonagens.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_todosplanets.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_todosstarships.xml" value="0.1" />

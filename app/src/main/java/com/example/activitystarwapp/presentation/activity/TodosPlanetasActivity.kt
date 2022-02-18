@@ -9,11 +9,12 @@ import com.example.activitystarwapp.presentation.viewmodel.TodosPlanetasViewMode
 class TodosPlanetasActivity : BaseActivity() {
     private lateinit var binding : ActivityTodosplanetasBinding
     private lateinit var viewModel : TodosPlanetasViewModel
-    private lateinit var todosPlanetsFragment: TodosPlanetsFragment
+    private lateinit var todosFragment: TodosFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        hideSearch()
         binding = ActivityTodosplanetasBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
@@ -22,18 +23,21 @@ class TodosPlanetasActivity : BaseActivity() {
         viewModel = ViewModelProvider(this).get(TodosPlanetasViewModel::class.java)
         viewModel.setUpList()
 
-        todosPlanetsFragment = TodosPlanetsFragment()
+        todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_todosplanetas,todosPlanetsFragment,"TodosPlanetas")
+            .replace(R.id.fl_todosplanetas,todosFragment,"TodosPlanetas")
             .commit()
 
         initObservers()
         getData()
     }
 
+    override fun searchId() {
+    }
+
     override fun onResume() {
         super.onResume()
-        todosPlanetsFragment.clearRv()
+        todosFragment.clearRv()
         getData()
     }
 
@@ -44,13 +48,14 @@ class TodosPlanetasActivity : BaseActivity() {
 
     private fun initObservers() {
         viewModel.planetList.observe(this) {
-            todosPlanetsFragment.setUpAdapterPlanet(it.results)
+            todosFragment.setUpAdapter(it.results)
+            loadCompleted()
         }
     }
 
     fun setUpItemFragment(position: Int) {
         viewModel.planetList.value?.let {
-            val fragmentItem = ItemPlanetFragment(position, it.results)
+            val fragmentItem = ItemFragment(position, it.results)
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_todosplanetas, fragmentItem, "ItemPlanetas")
                 .commit()

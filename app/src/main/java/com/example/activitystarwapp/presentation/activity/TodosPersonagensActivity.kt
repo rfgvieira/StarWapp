@@ -2,37 +2,36 @@ package com.example.activitystarwapp.presentation.activity
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.activitystarwapp.R
-import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.databinding.ActivityTodospersonagemBinding
-import com.example.activitystarwapp.presentation.adapter.CharacterAdapter
 import com.example.activitystarwapp.presentation.viewmodel.TodosPersonagensViewModel
 
 class TodosPersonagensActivity : BaseActivity() {
     private lateinit var binding: ActivityTodospersonagemBinding
     private lateinit var viewModel: TodosPersonagensViewModel
-    private lateinit var todosPersonagemFragment: TodosPersonagemFragment
+    private lateinit var todosFragment: TodosFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityTodospersonagemBinding.inflate(layoutInflater)
-
+        hideSearch()
         setContentView(binding.root)
         initlizeViews()
 
         viewModel = ViewModelProvider(this).get(TodosPersonagensViewModel::class.java)
         viewModel.setUpList()
 
-        todosPersonagemFragment = TodosPersonagemFragment()
+        todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_todospersonagens,todosPersonagemFragment,"TodosPersonagens")
+            .replace(R.id.fl_todospersonagens,todosFragment,"TodosPersonagens")
             .commit()
 
         initObservers()
         getData()
     }
+
+
 
     private fun initlizeViews() {
         setTitleActivity(R.string.personagens)
@@ -40,21 +39,20 @@ class TodosPersonagensActivity : BaseActivity() {
     }
     override fun onResume() {
         super.onResume()
-        todosPersonagemFragment.clearRv()
+        todosFragment.clearRv()
         getData()
     }
 
-
     private fun initObservers() {
         viewModel.characterList.observe(this) {
-            todosPersonagemFragment.setUpAdapterCharacter(it.results)
+            todosFragment.setUpAdapter(it.results)
             loadCompleted()
         }
     }
 
     fun setUpItemFragment(position: Int) {
         viewModel.characterList.value?.let {
-            val fragmentItem = ItemPlanetFragment(position, it.results)
+            val fragmentItem = ItemFragment(position, it.results)
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_todospersonagens, fragmentItem, "ItemPlanetas")
                 .commit()
@@ -66,9 +64,5 @@ class TodosPersonagensActivity : BaseActivity() {
         viewModel.getCharacter()
     }
 
-
-
-
-
-
+    override fun searchId() { }
 }

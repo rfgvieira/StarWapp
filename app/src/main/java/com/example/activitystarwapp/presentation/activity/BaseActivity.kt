@@ -9,11 +9,17 @@ import com.example.activitystarwapp.databinding.ActivityBaseBinding
 
 abstract class BaseActivity : AppCompatActivity() {
     private lateinit var binding : ActivityBaseBinding
-    var flag = 0
+    protected var id : String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityBaseBinding.inflate(layoutInflater)
+
+        binding.imvBuscaicon.setOnClickListener {
+            id = binding.edtSearchbar.text.toString()
+            searchId()
+        }
+
         binding.imvVolta.setOnClickListener {
             volta()
         }
@@ -22,6 +28,10 @@ abstract class BaseActivity : AppCompatActivity() {
      open fun volta() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        volta()
     }
 
     override fun setContentView(view: View) {
@@ -50,6 +60,10 @@ abstract class BaseActivity : AppCompatActivity() {
         binding.pbLoading.visibility = View.GONE
     }
 
+    abstract fun searchId()
 
+    fun hideSearch(){
+        binding.llBusca.visibility = View.GONE
+    }
 
 }

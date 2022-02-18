@@ -18,6 +18,10 @@ class PlanetAdapter (private val context : Context, private  val planetList: Lis
         return PlanetHolder()
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
     override fun onBindViewHolder(holder: PlanetHolder, position: Int) {
         with(planetList[position]){
 

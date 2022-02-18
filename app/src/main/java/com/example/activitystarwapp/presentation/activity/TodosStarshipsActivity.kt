@@ -9,31 +9,34 @@ import com.example.activitystarwapp.presentation.viewmodel.TodosStarshipsViewMod
 class TodosStarshipsActivity : BaseActivity() {
     private lateinit var binding : ActivityTodosstarshipsBinding
     private lateinit var viewModel : TodosStarshipsViewModel
-    private lateinit var starshipFragment: TodosStarshipFragment
+    private lateinit var todosFragment: TodosFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityTodosstarshipsBinding.inflate(layoutInflater)
-
-        setContentView(binding.root)
+        hideSearch()
         initlizeViews()
+        setContentView(binding.root)
+
 
         viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
         viewModel.setUpList()
 
-        starshipFragment = TodosStarshipFragment()
+        todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_todosstarships,starshipFragment,"TodosStarship")
+            .replace(R.id.fl_todosstarships,todosFragment,"TodosStarship")
             .commit()
 
         initObservers()
         getData()
     }
 
+
+
     override fun onResume() {
         super.onResume()
-        starshipFragment.clearRv()
+        todosFragment.clearRv()
         getData()
     }
 
@@ -44,14 +47,14 @@ class TodosStarshipsActivity : BaseActivity() {
 
     private fun initObservers() {
         viewModel.starshipList.observe(this) {
-            starshipFragment.setUpAdapterStarship(it.results)
+            todosFragment.setUpAdapter(it.results)
             loadCompleted()
         }
     }
 
     fun setUpItemFragment(position: Int) {
         viewModel.starshipList.value?.let {
-            val fragmentItem = ItemPlanetFragment(position, it.results)
+            val fragmentItem = ItemFragment(position, it.results)
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fl_todosstarships, fragmentItem, "ItemPlanetas")
                 .commit()
@@ -62,4 +65,6 @@ class TodosStarshipsActivity : BaseActivity() {
         loadStart()
         viewModel.getStarships()
     }
+
+    override fun searchId() { }
 }
