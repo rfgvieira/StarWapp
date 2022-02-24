@@ -4,25 +4,26 @@ import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.data.model.StarshipModel
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface Endpoint {
     @GET("people/")
-    fun getPeoples() : Call<CharacterModel.Response>
+    suspend fun getPeoples() : Response<CharacterModel.Response>
 
     @GET("people/{id}")
-    fun getPeopleId(@Path("id") id : Int) : Call<CharacterModel.Result>
+    suspend fun getPeopleId(@Path("id") id : Int) : Response<CharacterModel.Result>
 
     @GET("planets/")
-    fun getPlanets() : Call<PlanetsModel.Response>
+    suspend fun getPlanets() : Response<PlanetsModel.Response>
 
     @GET("planets/{id}")
-    fun getPlanetsId(@Path("id") id : Int) : Call<PlanetsModel.Result>
+    suspend fun getPlanetsId(@Path("id") id : Int) : Response<PlanetsModel.Result>
 
     @GET("starships/")
-    fun getStarships() : Call<StarshipModel.Response>
+    suspend fun getStarships() : Response<StarshipModel.Response>
 
     @GET("starships/{id}")
-    fun getStarshipsId(@Path("id") id : Int) : Call<StarshipModel.Result>
+    suspend fun getStarshipsId(@Path("id") id : Int) : Response<StarshipModel.Result>
 }

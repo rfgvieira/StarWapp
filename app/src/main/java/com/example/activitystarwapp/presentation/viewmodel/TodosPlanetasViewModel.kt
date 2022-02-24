@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.data.service.RetroFit
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,25 +23,16 @@ class TodosPlanetasViewModel : ViewModel() {
 
     fun getPlanets(){
         planetList.value = PlanetsModel.Response(0, "", null, listOf())
-        val callback = endpoint.getPlanets()
-
-        callback.enqueue(object  : Callback<PlanetsModel.Response> {
-            override fun onResponse(call: Call<PlanetsModel.Response>, response: Response<PlanetsModel.Response>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = endpoint.getPlanets()
+            if(response.isSuccessful) {
                 val model = response.body()
-                if(model != null){
-                    addListPlanet(model)
-                } else{
+                if(model != null)
+                   planetList.postValue(model)
+                else
                     Log.d("nullApi","API Nula")
-                }
-            }
-
-            override fun onFailure(call: Call<PlanetsModel.Response>, t: Throwable) {
+            } else
                 Log.d("falhou","Deu Ruim")
-            }
-        })
-    }
-
-    fun addListPlanet(model: PlanetsModel.Response){
-        planetList.value = model
+        }
     }
 }

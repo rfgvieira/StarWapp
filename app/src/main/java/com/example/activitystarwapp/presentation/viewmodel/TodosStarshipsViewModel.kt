@@ -5,9 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.data.service.RetroFit
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+
 
 class TodosStarshipsViewModel : ViewModel() {
     private val endpoint = RetroFit.setRetrofit()
@@ -20,27 +24,18 @@ class TodosStarshipsViewModel : ViewModel() {
         flag = 1
     }
 
-    fun getStarships(){
-        val callback = endpoint.getStarships()
+    fun getStarships() {
 
-        callback.enqueue(object  : Callback<StarshipModel.Response> {
-            override fun onResponse(call: Call<StarshipModel.Response>, response: Response<StarshipModel.Response>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = endpoint.getStarships()
+            if (response.isSuccessful) {
                 val model = response.body()
-                if(model != null){
-                    addListStarship(model)
-                } else{
-                    Log.d("nullApi","API Nula")
-                }
-            }
-
-            override fun onFailure(call: Call<StarshipModel.Response>, t: Throwable) {
-                Log.d("falhou","Deu Ruim")
-            }
-        })
-    }
-
-
-    fun addListStarship(model: StarshipModel.Response){
-        starshipList.value = model
+                if (model != null)
+                    starshipList.postValue(model)
+                else
+                    Log.d("nullApi", "API Nula")
+            } else
+                Log.d("falhou", "Deu Ruim")
+        }
     }
 }

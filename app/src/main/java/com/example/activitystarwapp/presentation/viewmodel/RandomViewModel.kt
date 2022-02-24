@@ -7,6 +7,9 @@ import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.data.model.PlanetsModel
 import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.data.service.RetroFit
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,60 +25,49 @@ class RandomViewModel : ViewModel() {
 
 
     fun getCharacter(){
-        val callback = endpoint.getPeopleId((1..82).random())
 
-        callback.enqueue(object  : Callback<CharacterModel.Result> {//ViewModel
-            override fun onResponse(call: Call<CharacterModel.Result>, response: Response<CharacterModel.Result>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = endpoint.getPeopleId((1..82).random())
+            if(response.isSuccessful){
                 val model = response.body()
-                if(model != null){
-                    characterList.value = model
-                } else{
+                if(model != null)
+                    characterList.postValue(model)
+                else
                     Log.d("nullApi","API Nula")
-                }
             }
-
-            override fun onFailure(call: Call<CharacterModel.Result>, t: Throwable) {
+            else
                 Log.d("falhou","Deu Ruim")
-            }
-        })
+
+        }
     }
 
     fun getPlanet(){
-        val callback = endpoint.getPlanetsId((1..60).random())
-
-        callback.enqueue(object  : Callback<PlanetsModel.Result> {//ViewModel
-            override fun onResponse(call: Call<PlanetsModel.Result>, response: Response<PlanetsModel.Result>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = endpoint.getPlanetsId((1..60).random())
+            if(response.isSuccessful){
                 val model = response.body()
-                if(model != null){
-                    planetList.value = model
-                } else{
+                if(model != null)
+                    planetList.postValue(model)
+                else
                     Log.d("nullApi","API Nula")
-                }
             }
-
-            override fun onFailure(call: Call<PlanetsModel.Result>, t: Throwable) {
+            else
                 Log.d("falhou","Deu Ruim")
-            }
-        })
+        }
     }
 
     fun getStarship(){
-        val callback = endpoint.getStarshipsId((1..23).random())
 
-        callback.enqueue(object  : Callback<StarshipModel.Result> {//ViewModel
-            override fun onResponse(call: Call<StarshipModel.Result>, response: Response<StarshipModel.Result>) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = endpoint.getStarshipsId((1..23).random())
+            if(response.isSuccessful){
                 val model = response.body()
-                if(model != null){
-                    starshipList.value = model
-                } else{
+                if(model != null)
+                    starshipList.postValue(model)
+                else
                     Log.d("nullApi","API Nula")
-                }
-            }
-            override fun onFailure(call: Call<StarshipModel.Result>, t: Throwable) {
+            } else
                 Log.d("falhou","Deu Ruim")
-            }
-        })
+        }
     }
-
-
 }

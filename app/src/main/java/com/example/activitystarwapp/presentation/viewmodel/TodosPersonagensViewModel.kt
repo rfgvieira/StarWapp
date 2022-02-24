@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.example.activitystarwapp.data.model.CharacterModel
 import com.example.activitystarwapp.data.model.StarshipModel
 import com.example.activitystarwapp.data.service.RetroFit
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,25 +27,17 @@ class TodosPersonagensViewModel: ViewModel() {
     fun getCharacter(){
         characterList.value = CharacterModel.Response(0, "", null, listOf())
 
-        val callback = endpoint.getPeoples()
-
-        callback.enqueue(object  : Callback<CharacterModel.Response> {//ViewModel
-        override fun onResponse(call: Call<CharacterModel.Response>, response: Response<CharacterModel.Response>) {
-            val model = response.body()
-            if(model != null){
-                addListCharacter(model)
-            } else{
-                Log.d("nullApi","API Nula")
-            }
-        }
-
-            override fun onFailure(call: Call<CharacterModel.Response>, t: Throwable) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = endpoint.getPeoples()
+            if(response.isSuccessful) {
+                val model = response.body()
+                if(model != null)
+                    characterList.postValue(model)
+                else
+                    Log.d("nullApi","API Nula")
+            } else
                 Log.d("falhou","Deu Ruim")
-            }
-        })
-    }
 
-    fun addListCharacter(model: CharacterModel.Response){
-        characterList.value = model
+        }
     }
 }
