@@ -8,3 +8,9 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ActivityStarWapp"
 include ':app'
+include ':personagem'
+include ':espaconave'
+include ':planetas'
+include ':shared-assets'
+include ':services'
+include ':base'

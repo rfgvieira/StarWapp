@@ -3,20 +3,16 @@ package com.example.activitystarwapp.presentation.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.activitystarwapp.data.model.CharacterModel
-import com.example.activitystarwapp.data.model.PlanetsModel
-import com.example.activitystarwapp.data.model.StarshipModel
-import com.example.activitystarwapp.data.service.RetroFit
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.personagem.data.model.CharacterModel
+import com.example.planetas.data.model.PlanetsModel
+import com.example.espaconave.data.model.StarshipModel
+import com.example.planetas.data.api.Endpoint
+import com.example.services.RetroFit
 
 class RandomViewModel : ViewModel() {
 
-    private val endpoint = RetroFit.setRetrofit()
+    private val retroFit = RetroFit.getRetrofitInstance("https://swapi.dev/api/")
+    private val endpoint = retroFit.create(Endpoint ::class.java)
     val characterList = MutableLiveData<CharacterModel.Result>()
     val planetList = MutableLiveData<PlanetsModel.Result>()
     val starshipList = MutableLiveData<StarshipModel.Result>()

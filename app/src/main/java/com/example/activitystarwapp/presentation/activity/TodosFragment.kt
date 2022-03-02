@@ -7,18 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.activitystarwapp.R
-import com.example.activitystarwapp.data.model.PlanetsModel
-import com.example.activitystarwapp.presentation.adapter.PlanetAdapter
-import android.app.Activity
-import android.content.Context
+import com.example.planetas.data.model.PlanetsModel
+import com.example.planetas.presentation.adapter.PlanetAdapter
 import android.util.Log
-import android.widget.Adapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.activitystarwapp.data.model.CharacterModel
-import com.example.activitystarwapp.data.model.StarshipModel
+import com.example.personagem.data.model.CharacterModel
+import com.example.espaconave.data.model.StarshipModel
 import com.example.activitystarwapp.databinding.FragmentTodosBinding
-import com.example.activitystarwapp.presentation.adapter.CharacterAdapter
-import com.example.activitystarwapp.presentation.adapter.StarshipAdapter
+import com.example.personagem.presentation.adapter.CharacterAdapter
+import com.example.espaconave.presentation.adapter.StarshipAdapter
 
 
 class TodosFragment : Fragment() {

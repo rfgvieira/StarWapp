@@ -34,14 +34,34 @@
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/fragment_todosstarships.xml" value="0.1" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/popup.xml" value="0.4" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/layout/popup_rand.xml" value="0.13768115942028986" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/base/src/main/res/layout/activity_base.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/espaconave/src/main/res/layout/activity_busca_starship.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/espaconave/src/main/res/layout/activity_starshipitem.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/espaconave/src/main/res/layout/activity_todosstarships.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/personagem/src/main/res/layout/activity_buscapersonagem.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/personagem/src/main/res/layout/activity_personagemitem.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/personagem/src/main/res/layout/activity_todospersonagem.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/planetas/src/main/res/layout/activity_buscaplaneta.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/planetas/src/main/res/layout/activity_planetitem.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/planetas/src/main/res/layout/activity_todosplanetas.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/shared-assets/src/main/res/drawable/roundedbtn.xml" value="0.1953125" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/shared-assets/src/main/res/drawable/roundeditem.xml" value="0.1953125" />
+        <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/shared-assets/src/main/res/drawable/searchbar.xml" value="0.1953125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.31614583333333335" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
   </component>
 </project>

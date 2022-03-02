@@ -6,7 +6,7 @@ import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityRandomBinding
 import com.example.activitystarwapp.presentation.viewmodel.RandomViewModel
 
-class RandomActivity : BaseActivity() {
+class RandomActivity : com.example.base.activity.BaseActivity() {
     private lateinit var binding: ActivityRandomBinding
     private lateinit var viewModel: RandomViewModel
     private lateinit var fragmentRandomFragment: RandomFragment

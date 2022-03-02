@@ -11,6 +11,12 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/base" />
+            <option value="$PROJECT_DIR$/espaconave" />
+            <option value="$PROJECT_DIR$/personagem" />
+            <option value="$PROJECT_DIR$/planetas" />
+            <option value="$PROJECT_DIR$/services" />
+            <option value="$PROJECT_DIR$/shared-assets" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

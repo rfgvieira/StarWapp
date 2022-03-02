@@ -15,10 +15,10 @@
             android:name=".presentation.activity.RandomActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.activity.BuscaStarshipActivity"
+            android:name="com.example.espaconave.presentation.activity.BuscaStarshipActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.activity.BuscaPlanetaActivity"
+            android:name="com.example.planetas.presentation.activity.BuscaPlanetaActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activity.SplashActivity"
@@ -30,13 +30,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.activity.TodosPersonagensActivity"
+            android:name="com.example.personagem.presentation.activity.TodosPersonagensActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.activity.TodosPlanetasActivity"
+            android:name="com.example.planetas.presentation.activity.TodosPlanetasActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.activity.TodosStarshipsActivity"
+            android:name="com.example.espaconave.presentation.activity.TodosStarshipsActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activity.MainActivity"
@@ -44,7 +44,7 @@
 
         </activity>
         <activity
-            android:name=".presentation.activity.BuscaPersonagemActivity"
+            android:name="com.example.personagem.presentation.activity.BuscaPersonagemActivity"
             android:exported="false" />
     </application>
 
