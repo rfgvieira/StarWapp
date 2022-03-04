@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.activitystarwapp.R
 import com.example.activitystarwapp.databinding.ActivityRandomBinding
 import com.example.activitystarwapp.presentation.viewmodel.RandomViewModel
+import com.example.base.BaseActivity
+import com.example.base.ItemFragment
 
 class RandomActivity : BaseActivity() {
     private lateinit var binding: ActivityRandomBinding

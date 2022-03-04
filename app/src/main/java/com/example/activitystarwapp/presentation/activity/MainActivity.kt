@@ -1,11 +1,8 @@
 package com.example.activitystarwapp.presentation.activity
 
-import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.Window
 import android.widget.AdapterView
 import androidx.appcompat.content.res.AppCompatResources
 import com.example.activitystarwapp.R
@@ -13,6 +10,12 @@ import com.example.activitystarwapp.databinding.ActivityMenuBinding
 import com.example.activitystarwapp.databinding.PopupBinding
 import com.example.activitystarwapp.databinding.PopupRandBinding
 import com.example.activitystarwapp.presentation.adapter.GridAdapter
+import com.example.espaconave.activity.BuscaStarshipActivity
+import com.example.espaconave.activity.TodosStarshipsActivity
+import com.example.personagens.activity.BuscaPersonagemActivity
+import com.example.personagens.activity.TodosPersonagensActivity
+import com.example.planetas.activity.BuscaPlanetaActivity
+import com.example.planetas.activity.TodosPlanetasActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class MainActivity : AppCompatActivity() {

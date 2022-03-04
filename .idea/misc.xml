@@ -6,7 +6,21 @@
         <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_base.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_busca_starship.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_item.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_personagemitem.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/app/src/main/res/layout/activity_planetitem.xml" value="0.2128623188405797" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/base/src/main/res/layout/activity_base.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/base/src/main/res/layout/fragment_detalhe.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/base/src/main/res/layout/fragment_todos.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/espaconave/src/main/res/layout/activity_busca_starship.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/espaconave/src/main/res/layout/activity_starshipitem.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/espaconave/src/main/res/layout/activity_todosstarships.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/personagens/src/main/res/layout/activity_buscapersonagem.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/personagens/src/main/res/layout/activity_personagemitem.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/personagens/src/main/res/layout/activity_todospersonagem.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/planetas/src/main/res/layout/activity_buscaplaneta.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/planetas/src/main/res/layout/activity_planetitem.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/planetas/src/main/res/layout/activity_todosplanetas.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/sallo/Documents/Trabalho/StarWapp/shared-assets/src/main/res/drawable/roundeditem.xml" value="0.403125" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/popupbg.xml" value="0.1953125" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/roundedbtn.xml" value="0.1953125" />
         <entry key="..\:/Users/vr0016/AndroidStudioProjects/StarWapp/app/src/main/res/drawable/roundedbtnrand.xml" value="0.1953125" />

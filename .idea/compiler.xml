@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="ActivityStarWapp.app" target="11" />
+      <module name="ActivityStarWapp.base" target="11" />
       <module name="ActivityStarWapp.espaconave" target="11" />
       <module name="ActivityStarWapp.personagens" target="11" />
       <module name="ActivityStarWapp.planetas" target="11" />
