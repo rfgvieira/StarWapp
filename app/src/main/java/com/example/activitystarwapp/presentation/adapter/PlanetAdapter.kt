@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.activitystarwapp.data.model.PlanetsModel
+import com.example.model.PlanetsModel
 import com.example.activitystarwapp.databinding.ActivityPlanetitemBinding
 import com.example.activitystarwapp.presentation.activity.BuscaPlanetaActivity
 import com.example.activitystarwapp.presentation.activity.TodosPlanetasActivity

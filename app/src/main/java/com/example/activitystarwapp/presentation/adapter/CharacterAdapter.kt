@@ -1,14 +1,10 @@
 package com.example.activitystarwapp.presentation.adapter
 
-import android.os.Bundle
 import android.content.Context
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.activitystarwapp.data.model.CharacterModel
-import com.example.activitystarwapp.R
+import com.example.model.CharacterModel
 import com.example.activitystarwapp.databinding.ActivityPersonagemitemBinding
 import com.example.activitystarwapp.presentation.activity.BuscaPersonagemActivity
 import com.example.activitystarwapp.presentation.activity.TodosPersonagensActivity

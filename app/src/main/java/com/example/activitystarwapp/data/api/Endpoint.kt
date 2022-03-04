@@ -1,9 +1,8 @@
 package com.example.activitystarwapp.data.api
 
-import com.example.activitystarwapp.data.model.CharacterModel
-import com.example.activitystarwapp.data.model.PlanetsModel
-import com.example.activitystarwapp.data.model.StarshipModel
-import retrofit2.Call
+import com.example.model.CharacterModel
+import com.example.model.PlanetsModel
+import com.example.model.StarshipModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

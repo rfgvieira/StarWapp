@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.activitystarwapp.data.model.CharacterModel
-import com.example.activitystarwapp.data.model.PlanetsModel
-import com.example.activitystarwapp.data.model.StarshipModel
+import com.example.model.CharacterModel
+import com.example.model.PlanetsModel
+import com.example.model.StarshipModel
 import com.example.activitystarwapp.databinding.FragmentDetalheBinding
 
 class ItemFragment(private val position: Int, private val results: List<*>) : Fragment() {

@@ -3,18 +3,16 @@ package com.example.activitystarwapp.presentation.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.activitystarwapp.data.model.StarshipModel
-import com.example.activitystarwapp.data.service.RetroFit
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import androidx.lifecycle.viewModelScope
+import com.example.activitystarwapp.data.api.Endpoint
+import com.example.model.StarshipModel
+import com.example.service.RetroFit
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class TodosStarshipsViewModel : ViewModel() {
-    private val endpoint = RetroFit.setRetrofit()
+    private val retroFit = RetroFit.getRetrofitInstance("https://swapi.dev/api/")
+    private val endpoint = retroFit.create(Endpoint :: class.java)
     val starshipList = MutableLiveData<StarshipModel.Response>()
     private var flag = 0
     fun setUpList(){
@@ -26,7 +24,7 @@ class TodosStarshipsViewModel : ViewModel() {
 
     fun getStarships() {
 
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             val response = endpoint.getStarships()
             if (response.isSuccessful) {
                 val model = response.body()

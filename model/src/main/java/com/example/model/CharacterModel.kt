@@ -1,4 +1,4 @@
-package com.example.activitystarwapp.data.model
+package com.example.model
 
 import com.google.gson.annotations.SerializedName
 class CharacterModel {

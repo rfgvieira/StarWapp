@@ -1,12 +1,10 @@
 package com.example.activitystarwapp.presentation.adapter
 
 import android.content.Context
-import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.activitystarwapp.R
-import com.example.activitystarwapp.data.model.StarshipModel
+import com.example.model.StarshipModel
 import com.example.activitystarwapp.databinding.ActivityStarshipitemBinding
 import com.example.activitystarwapp.presentation.activity.BuscaStarshipActivity
 import com.example.activitystarwapp.presentation.activity.TodosStarshipsActivity

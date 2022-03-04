@@ -1,6 +1,5 @@
-package com.example.activitystarwapp.data.service
+package com.example.service
 
-import com.example.activitystarwapp.data.api.Endpoint
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -12,11 +11,6 @@ class RetroFit {
                 .baseUrl(path)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-        }
-
-        fun setRetrofit() : Endpoint {
-            val retroFit = getRetrofitInstance("https://swapi.dev/api/")
-            return retroFit.create(Endpoint ::class.java)
         }
 
     }
