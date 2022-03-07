@@ -3,22 +3,30 @@ package com.example.planetas.activity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.planetas.viewmodel.TodosPlanetasViewModel
 import com.example.base.BaseActivity
 import com.example.base.ItemFragment
 import com.example.base.TodosFragment
 import com.example.planetas.R
-import com.example.planetas.databinding.ActivityBuscaplanetaBinding
+import com.example.planetas.databinding.ActivityPlanetasBinding
+import com.example.planetas.viewmodel.TodosPlanetasViewModel
+import kotlin.properties.Delegates
 
-class BuscaPlanetaActivity : BaseActivity() {
-    private lateinit var binding : ActivityBuscaplanetaBinding
+class PlanetasActivity : BaseActivity() {
+
+    private lateinit var binding : ActivityPlanetasBinding
     private lateinit var viewModel: TodosPlanetasViewModel
     private var todosFragment = TodosFragment()
-    private var flag = 0
+    private var modo = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityBuscaplanetaBinding.inflate(layoutInflater)
+        modo = intent.getIntExtra("modo",0)
+
+        if(modo == 0)
+            hideSearch()
+
+        binding = ActivityPlanetasBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initializeView()
 
@@ -26,7 +34,6 @@ class BuscaPlanetaActivity : BaseActivity() {
         viewModel.setUpList()
 
         setUpTodosFragment()
-
         initObserver()
     }
 
@@ -42,27 +49,24 @@ class BuscaPlanetaActivity : BaseActivity() {
     }
 
     private fun initObserver() {
-        viewModel.planetList.observe(this, {
+        viewModel.planetList.observe(this) {
             todosFragment.setUpAdapter(it.results)
             loadCompleted()
-        })
+        }
     }
 
     fun setUpTodosFragment(){
         supportFragmentManager.beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.fl_buscaplanets,todosFragment,"TodosPlanetas")
+            .replace(R.id.fl_planetas,todosFragment,"TodosPlanetas")
             .commit()
-        flag = 0
     }
 
     fun setUpItemFragment(position: Int) {
-        flag = 1
         viewModel.planetList.value?.let {
             val fragmentItem = ItemFragment(position,it.results)
             supportFragmentManager.beginTransaction()
                 .addToBackStack(null)
-                .replace(R.id.fl_buscaplanets, fragmentItem, "ItemPlanetas")
+                .replace(R.id.fl_planetas, fragmentItem, "ItemPlanetas")
                 .commit()
         }
     }
@@ -72,22 +76,16 @@ class BuscaPlanetaActivity : BaseActivity() {
         viewModel.getPlanets()
     }
     override fun searchId() {
-        viewModel.planetList.value?.let {
-            if(id.isEmpty()){
-                Toast.makeText(this,R.string.avisonulo, Toast.LENGTH_SHORT).show()
-            } else if(id.toInt() > it.results.size ){
-                Toast.makeText(this,R.string.avisoforarange, Toast.LENGTH_SHORT).show()
-            }  else {
-                todosFragment.setUpAdapter(listOf(it.results[id.toInt()-1]))
+        if(modo == 1){
+            viewModel.planetList.value?.let {
+                if(id.isEmpty()){
+                    Toast.makeText(this, R.string.avisonulo, Toast.LENGTH_SHORT).show()
+                } else if(id.toInt() > it.results.size ){
+                    Toast.makeText(this, R.string.avisoforarange, Toast.LENGTH_SHORT).show()
+                }  else {
+                    todosFragment.setUpAdapter(listOf(it.results[id.toInt()-1]))
+                }
             }
         }
     }
-
-    override fun volta() {
-        if(flag == 1){
-            supportFragmentManager.popBackStack()
-        } else if (flag == 0)
-            super.volta()
-    }
-
 }

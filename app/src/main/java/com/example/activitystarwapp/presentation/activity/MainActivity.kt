@@ -10,12 +10,9 @@ import com.example.activitystarwapp.databinding.ActivityMenuBinding
 import com.example.activitystarwapp.databinding.PopupBinding
 import com.example.activitystarwapp.databinding.PopupRandBinding
 import com.example.activitystarwapp.presentation.adapter.GridAdapter
-import com.example.espaconave.activity.BuscaStarshipActivity
-import com.example.espaconave.activity.TodosStarshipsActivity
-import com.example.personagens.activity.BuscaPersonagemActivity
-import com.example.personagens.activity.TodosPersonagensActivity
-import com.example.planetas.activity.BuscaPlanetaActivity
-import com.example.planetas.activity.TodosPlanetasActivity
+import com.example.espaconave.activity.StarshipActivity
+import com.example.personagens.activity.PersonagensActivity
+import com.example.planetas.activity.PlanetasActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class MainActivity : AppCompatActivity() {
@@ -97,31 +94,19 @@ class MainActivity : AppCompatActivity() {
     private fun redirectActivity(tipo : Int, modo : Int) {
         when(tipo){
             0 -> {
-                if(modo == 0) {
-                    val intent = Intent(this, TodosStarshipsActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    val intent = Intent(this, BuscaStarshipActivity::class.java)
-                    startActivity(intent)
-                }
+                val intent = Intent(this, StarshipActivity::class.java)
+                intent.putExtra("modo", modo)
+                startActivity(intent)
             }
             1 -> {
-                if(modo == 0) {
-                    val intent = Intent(this, TodosPlanetasActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    val intent = Intent(this, BuscaPlanetaActivity::class.java)
-                    startActivity(intent)
-                }
+                val intent = Intent(this, PlanetasActivity::class.java)
+                intent.putExtra("modo", modo)
+                startActivity(intent)
             }
             2 -> {
-                if(modo == 0) {
-                    val intent = Intent(this, TodosPersonagensActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    val intent = Intent(this, BuscaPersonagemActivity::class.java)
-                    startActivity(intent)
-                }
+                val intent = Intent(this, PersonagensActivity::class.java)
+                intent.putExtra("modo",modo)
+                startActivity(intent)
             }
         }
     }

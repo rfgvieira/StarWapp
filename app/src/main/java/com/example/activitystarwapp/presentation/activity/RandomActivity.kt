@@ -51,24 +51,24 @@ class RandomActivity : BaseActivity() {
     }
 
     private fun initObserveCharacter() {
-        viewModel.characterList.observe(this, {
-            fragmentRandomFragment.bindValues(it.name, it.height, it.eye_Color,rand,listOf(it))
+        viewModel.characterList.observe(this) {
+            fragmentRandomFragment.bindValues(it.name, it.height, it.eye_Color, rand, listOf(it))
             loadCompleted()
-        })
+        }
     }
 
     private fun initObservePlanet() {
-        viewModel.planetList.observe(this, {
-            fragmentRandomFragment.bindValues(it.name, it.diameter, it.population,rand,listOf(it))
+        viewModel.planetList.observe(this) {
+            fragmentRandomFragment.bindValues(it.name, it.diameter, it.population, rand, listOf(it))
             loadCompleted()
-        })
+        }
     }
 
     private fun initObserveStarship() {
-        viewModel.starshipList.observe(this, {
-            fragmentRandomFragment.bindValues(it.name, it.crew, it.passengers,rand,listOf(it))
+        viewModel.starshipList.observe(this) {
+            fragmentRandomFragment.bindValues(it.name, it.crew, it.passengers, rand, listOf(it))
             loadCompleted()
-        })
+        }
     }
 
     fun setUpItemFragment(item :List<*>) {

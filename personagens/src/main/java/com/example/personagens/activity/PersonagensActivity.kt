@@ -7,29 +7,39 @@ import com.example.base.BaseActivity
 import com.example.base.ItemFragment
 import com.example.base.TodosFragment
 import com.example.personagens.R
-import com.example.personagens.databinding.ActivityBuscapersonagemBinding
+import com.example.personagens.databinding.ActivityPersonagensBinding
 import com.example.personagens.viewmodel.TodosPersonagensViewModel
 
-class BuscaPersonagemActivity : BaseActivity() {
-    private lateinit var binding: ActivityBuscapersonagemBinding
+class PersonagensActivity : BaseActivity() {
+    private lateinit var binding: ActivityPersonagensBinding
     private lateinit var viewModel: TodosPersonagensViewModel
     private lateinit var todosFragment: TodosFragment
+    private var modo = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityBuscapersonagemBinding.inflate(layoutInflater)
+
+        modo = intent.getIntExtra("modo", 0)
+
+        binding = ActivityPersonagensBinding.inflate(layoutInflater)
         setContentView(binding.root)
-       initializeView()
+        initializeView()
+
+        if(modo == 0)
+            hideSearch()
 
         viewModel = ViewModelProvider(this).get(TodosPersonagensViewModel :: class.java)
         viewModel.setUpList()
 
+        setUpTodosFragment()
+        initObserver()
+    }
+
+    private fun setUpTodosFragment() {
         todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_buscapersonagens,todosFragment,"TodosPersonagens")
+            .replace(R.id.fl_personagens,todosFragment,"TodosPersonagens")
             .commit()
-
-        initObserver()
-        getData()
     }
 
     override fun onResume() {
@@ -59,26 +69,25 @@ class BuscaPersonagemActivity : BaseActivity() {
         viewModel.characterList.value?.let {
             val fragmentItem = ItemFragment(position, it.results)
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fl_buscapersonagens, fragmentItem, "Item")
+                .replace(R.id.fl_personagens, fragmentItem, "Item")
                 .commit()
         }
     }
 
-    override fun volta() {
-        supportFragmentManager.fragments
-    }
 
     override fun searchId() {
-        viewModel.characterList.value?.let {
-            if(id.isEmpty()){
-                Toast.makeText(this,R.string.avisonulo,Toast.LENGTH_SHORT)
-            } else if(id.toInt() > it.results.size ){
-                Toast.makeText(this,R.string.avisoforarange,Toast.LENGTH_SHORT)
-            }  else {
-                todosFragment.setUpAdapter(listOf(it.results[id.toInt()-1]))
+        if(modo == 1){
+            viewModel.characterList.value?.let {
+                if(id.isEmpty()){
+                    Toast.makeText(this, R.string.avisonulo, Toast.LENGTH_SHORT)
+                } else if(id.toInt() > it.results.size ){
+                    Toast.makeText(this, R.string.avisoforarange, Toast.LENGTH_SHORT)
+                }  else {
+                    todosFragment.setUpAdapter(listOf(it.results[id.toInt()-1]))
+                }
             }
         }
 
-    }
 
+    }
 }

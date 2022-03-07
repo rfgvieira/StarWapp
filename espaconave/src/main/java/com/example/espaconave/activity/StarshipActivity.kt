@@ -1,36 +1,48 @@
 package com.example.espaconave.activity
 
+
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.example.espaconave.viewmodel.TodosStarshipsViewModel
 import com.example.base.BaseActivity
 import com.example.base.ItemFragment
 import com.example.base.TodosFragment
 import com.example.espaconave.R
-import com.example.espaconave.databinding.ActivityBuscaStarshipBinding
+import com.example.espaconave.databinding.ActivityEspaconaveBinding
+import com.example.espaconave.viewmodel.TodosStarshipsViewModel
 
-class BuscaStarshipActivity : BaseActivity() {
-    private lateinit var binding : ActivityBuscaStarshipBinding
+class StarshipActivity : BaseActivity() {
+
+    private lateinit var binding : ActivityEspaconaveBinding
     private lateinit var viewModel: TodosStarshipsViewModel
     private lateinit var todosFragment: TodosFragment
+    private var modo = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityBuscaStarshipBinding.inflate(layoutInflater)
+
+        modo = intent.getIntExtra("modo", 0)
+
+        binding = ActivityEspaconaveBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initlizeViews()
+
+        if(modo == 0)
+            hideSearch()
 
         viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
         viewModel.setUpList()
 
+        setUpTodosFragment()
+        initObservers()
+    }
+
+    private fun setUpTodosFragment() {
         todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fl_buscastarships,todosFragment,"TodosStarship")
+            .replace(R.id.fl_starship,todosFragment,"TodosStarship")
             .commit()
-
-        initObservers()
     }
 
     override fun onResume() {
@@ -68,21 +80,22 @@ class BuscaStarshipActivity : BaseActivity() {
         viewModel.starshipList.value?.let {
             val fragmentItem = ItemFragment(position, it.results)
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fl_buscastarships, fragmentItem, "ItemPlanetas")
+                .replace(R.id.fl_starship, fragmentItem, "ItemPlanetas")
                 .commit()
         }
     }
 
     override fun searchId() {
-        viewModel.starshipList.value?.let {
-            if(id.isEmpty()){
-                Toast.makeText(this,R.string.avisonulo, Toast.LENGTH_LONG)
-            } else if(id.toInt() > it.results.size ){
-                Toast.makeText(this,R.string.avisoforarange, Toast.LENGTH_LONG)
-            }  else {
-                todosFragment.setUpAdapter(listOf(it.results[id.toInt()-1]))
+        if(modo == 1){
+            viewModel.starshipList.value?.let {
+                if(id.isEmpty()){
+                    Toast.makeText(this, R.string.avisonulo, Toast.LENGTH_LONG)
+                } else if(id.toInt() > it.results.size ){
+                    Toast.makeText(this, R.string.avisoforarange, Toast.LENGTH_LONG)
+                }  else {
+                    todosFragment.setUpAdapter(listOf(it.results[id.toInt()-1]))
+                }
             }
         }
     }
-
 }

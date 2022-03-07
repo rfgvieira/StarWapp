@@ -15,10 +15,7 @@
             android:name=".presentation.activity.RandomActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.espaconave.activity.BuscaStarshipActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.planetas.activity.BuscaPlanetaActivity"
+            android:name="com.example.planetas.activity.PlanetasActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activity.SplashActivity"
@@ -30,22 +27,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.personagens.activity.TodosPersonagensActivity"
+            android:name="com.example.personagens.activity.PersonagensActivity"
             android:exported="true" />
+
         <activity
-            android:name="com.example.planetas.activity.TodosPlanetasActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.espaconave.activity.TodosStarshipsActivity"
+            android:name="com.example.espaconave.activity.StarshipActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activity.MainActivity"
             android:exported="true">
 
         </activity>
-        <activity
-            android:name="com.example.personagens.activity.BuscaPersonagemActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

@@ -26,9 +26,9 @@ class TodosFragment : Fragment() {
          context?.let {
              var adapter : RecyclerView.Adapter<*>? = null
              when (list.firstOrNull()){
-                 is PlanetsModel.Result -> adapter = PlanetAdapter(it, list as List<PlanetsModel.Result>)
-                 is CharacterModel.Result -> adapter = CharacterAdapter(list as List<CharacterModel.Result>, it)
-                 is StarshipModel.Result -> adapter = StarshipAdapter(list as List<StarshipModel.Result>, it)
+                 is PlanetsModel.Result -> adapter = BaseAdapter(it, list as List<PlanetsModel.Result>)
+                 is CharacterModel.Result -> adapter = BaseAdapter(it, list as List<CharacterModel.Result>)
+                 is StarshipModel.Result -> adapter = BaseAdapter(it, list as List<StarshipModel.Result>)
                  null -> adapter = null
              }
              binding.tvResultcounttodosplanet.text = getString(R.string.resultado) + list.count()
