@@ -10,7 +10,7 @@ import com.example.service.RetroFit
 import kotlinx.coroutines.launch
 
 
-class TodosStarshipsViewModel : ViewModel() {
+class StarshipsViewModel : ViewModel() {
     private val retroFit = RetroFit.getRetrofitInstance("https://swapi.dev/api/")
     private val endpoint = retroFit.create(Endpoint :: class.java)
     val starshipList = MutableLiveData<StarshipModel.Response>()

@@ -10,12 +10,13 @@ import com.example.base.ItemFragment
 import com.example.base.TodosFragment
 import com.example.espaconave.R
 import com.example.espaconave.databinding.ActivityEspaconaveBinding
-import com.example.espaconave.viewmodel.TodosStarshipsViewModel
+import com.example.espaconave.viewmodel.StarshipsViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StarshipActivity : BaseActivity() {
 
     private lateinit var binding : ActivityEspaconaveBinding
-    private lateinit var viewModel: TodosStarshipsViewModel
+    private val viewModel: StarshipsViewModel by viewModel()
     private lateinit var todosFragment: TodosFragment
     private var modo = 0
 
@@ -31,7 +32,6 @@ class StarshipActivity : BaseActivity() {
         if(modo == 0)
             hideSearch()
 
-        viewModel = ViewModelProvider(this).get(TodosStarshipsViewModel::class.java)
         viewModel.setUpList()
 
         setUpTodosFragment()

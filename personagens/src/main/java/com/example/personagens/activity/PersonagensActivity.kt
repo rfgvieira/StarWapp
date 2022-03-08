@@ -8,11 +8,12 @@ import com.example.base.ItemFragment
 import com.example.base.TodosFragment
 import com.example.personagens.R
 import com.example.personagens.databinding.ActivityPersonagensBinding
-import com.example.personagens.viewmodel.TodosPersonagensViewModel
+import com.example.personagens.viewmodel.PersonagensViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PersonagensActivity : BaseActivity() {
     private lateinit var binding: ActivityPersonagensBinding
-    private lateinit var viewModel: TodosPersonagensViewModel
+    private val viewModel: PersonagensViewModel by viewModel()
     private lateinit var todosFragment: TodosFragment
     private var modo = 0
 
@@ -28,7 +29,6 @@ class PersonagensActivity : BaseActivity() {
         if(modo == 0)
             hideSearch()
 
-        viewModel = ViewModelProvider(this).get(TodosPersonagensViewModel :: class.java)
         viewModel.setUpList()
 
         setUpTodosFragment()

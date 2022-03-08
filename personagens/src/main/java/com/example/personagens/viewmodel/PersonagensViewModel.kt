@@ -9,7 +9,7 @@ import com.example.personagens.Endpoint
 import com.example.service.RetroFit
 import kotlinx.coroutines.launch
 
-class TodosPersonagensViewModel: ViewModel() {
+class PersonagensViewModel: ViewModel() {
     private val retroFit = RetroFit.getRetrofitInstance("https://swapi.dev/api/")
     private val endpoint = retroFit.create(Endpoint :: class.java)
     val characterList = MutableLiveData<CharacterModel.Response>()

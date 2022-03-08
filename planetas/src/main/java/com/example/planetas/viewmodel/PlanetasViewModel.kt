@@ -9,7 +9,7 @@ import com.example.planetas.Endpoint
 import com.example.service.RetroFit
 import kotlinx.coroutines.launch
 
-class TodosPlanetasViewModel : ViewModel() {
+class PlanetasViewModel : ViewModel() {
     private val retroFit = RetroFit.getRetrofitInstance("https://swapi.dev/api/")
     private val endpoint = retroFit.create(Endpoint :: class.java)
     val planetList = MutableLiveData<PlanetsModel.Response>()

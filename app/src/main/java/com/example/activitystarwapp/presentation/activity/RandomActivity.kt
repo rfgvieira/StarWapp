@@ -7,10 +7,11 @@ import com.example.activitystarwapp.databinding.ActivityRandomBinding
 import com.example.activitystarwapp.presentation.viewmodel.RandomViewModel
 import com.example.base.BaseActivity
 import com.example.base.ItemFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RandomActivity : BaseActivity() {
     private lateinit var binding: ActivityRandomBinding
-    private lateinit var viewModel: RandomViewModel
+    private val  viewModel: RandomViewModel by viewModel()
     private lateinit var fragmentRandomFragment: RandomFragment
     private val rand = (0..2).random()
 
@@ -20,8 +21,6 @@ class RandomActivity : BaseActivity() {
         setContentView(binding.root)
         hideSearch()
         initializeView()
-
-        viewModel = ViewModelProvider(this).get(RandomViewModel::class.java)
 
         fragmentRandomFragment = RandomFragment()
         supportFragmentManager.beginTransaction()

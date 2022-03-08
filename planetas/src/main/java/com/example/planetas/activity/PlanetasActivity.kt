@@ -8,13 +8,13 @@ import com.example.base.ItemFragment
 import com.example.base.TodosFragment
 import com.example.planetas.R
 import com.example.planetas.databinding.ActivityPlanetasBinding
-import com.example.planetas.viewmodel.TodosPlanetasViewModel
-import kotlin.properties.Delegates
+import com.example.planetas.viewmodel.PlanetasViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PlanetasActivity : BaseActivity() {
 
     private lateinit var binding : ActivityPlanetasBinding
-    private lateinit var viewModel: TodosPlanetasViewModel
+    private val viewModel: PlanetasViewModel by viewModel()
     private var todosFragment = TodosFragment()
     private var modo = 0
 
@@ -30,7 +30,6 @@ class PlanetasActivity : BaseActivity() {
         setContentView(binding.root)
         initializeView()
 
-        viewModel = ViewModelProvider(this).get(TodosPlanetasViewModel::class.java)
         viewModel.setUpList()
 
         setUpTodosFragment()
