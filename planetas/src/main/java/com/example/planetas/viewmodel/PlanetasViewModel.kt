@@ -4,13 +4,14 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.base.BaseViewModel
 import com.example.model.PlanetsModel
 import com.example.planetas.Endpoint
 import com.example.service.RetroFit
 import kotlinx.coroutines.launch
 
-class PlanetasViewModel : ViewModel() {
-    private val retroFit = RetroFit.getRetrofitInstance("https://swapi.dev/api/")
+class PlanetasViewModel : BaseViewModel() {
+
     private val endpoint = retroFit.create(Endpoint :: class.java)
     val planetList = MutableLiveData<PlanetsModel.Response>()
 

@@ -58,6 +58,10 @@ class PersonagensActivity : BaseActivity() {
             todosFragment.setUpAdapter(it.results)
             loadCompleted()
         }
+
+        viewModel.adapterClick.observe(this) {
+            viewModel.adapterPosition.value?.let { pos -> setUpItemFragment(pos) }
+        }
     }
 
     private fun getData() {
@@ -87,7 +91,5 @@ class PersonagensActivity : BaseActivity() {
                 }
             }
         }
-
-
     }
 }

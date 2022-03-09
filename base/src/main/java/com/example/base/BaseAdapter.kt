@@ -3,8 +3,6 @@ package com.example.base
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.base.databinding.ItemBaseBinding
@@ -12,9 +10,12 @@ import com.example.model.CharacterModel
 import com.example.model.PlanetsModel
 import com.example.model.StarshipModel
 
-class BaseAdapter(private val context : Context, private val listBase : List<*>) : RecyclerView.Adapter<BaseAdapter.BaseHolder>() {
+class BaseAdapter internal constructor(
+    private val context: Context,
+    private val listBase: List<*>,
+    private val viewModel: BaseViewModel
+) : RecyclerView.Adapter<BaseAdapter.BaseHolder>() {
     private lateinit var binding : ItemBaseBinding
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHolder {
         binding = ItemBaseBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return BaseHolder()
@@ -40,7 +41,7 @@ class BaseAdapter(private val context : Context, private val listBase : List<*>)
                     tvAttr2adapter.text = "Passageiros: " + passengers
 
                 clBaseAdapter.setOnClickListener {
-
+                    viewModel.adapterSwitch(position)
                 }
             }
         }
@@ -55,7 +56,7 @@ class BaseAdapter(private val context : Context, private val listBase : List<*>)
                 tvAttr2adapter.text = "Cor dos Olhos: " + eye_Color
 
                 clBaseAdapter.setOnClickListener {
-
+                    viewModel.adapterSwitch(position)
                 }
             }
         }
@@ -80,10 +81,7 @@ class BaseAdapter(private val context : Context, private val listBase : List<*>)
                     tvAttr2adapter.text = "População: ${population}"
 
                 clBaseAdapter.setOnClickListener {
-                    val fragmentItem = ItemFragment(position, listBase)
-                    (context as AppCompatActivity).supportFragmentManager.beginTransaction()
-                        .replace(R.id.fl_baseframe, fragmentItem, "ItemPlanetas")
-                        .commit()
+                    viewModel.adapterSwitch(position)
                 }
             }
         }
