@@ -21,7 +21,16 @@ class TodosFragment : Fragment() {
     private val viewModel : BaseViewModel by viewModel()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,savedInstanceState: Bundle?): View? {
         binding = FragmentTodosBinding.inflate(inflater,container,false)
+        initObserver()
         return binding.root
+    }
+
+    fun initObserver(){
+        viewModel.adapterClick.observe(viewLifecycleOwner){
+            viewModel.adapterPosition?.value?.let { pos ->
+                (activity as BaseActivity).setUpItemFragment(pos)
+            }
+        }
     }
 
 

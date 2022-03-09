@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.base.BaseActivity
+import com.example.base.BaseViewModel
 import com.example.base.ItemFragment
 import com.example.base.TodosFragment
 import com.example.personagens.R
@@ -35,11 +36,12 @@ class PersonagensActivity : BaseActivity() {
         initObserver()
     }
 
-    private fun setUpTodosFragment() {
+      fun setUpTodosFragment() {
         todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fl_personagens,todosFragment,"TodosPersonagens")
             .commit()
+
     }
 
     override fun onResume() {
@@ -58,10 +60,6 @@ class PersonagensActivity : BaseActivity() {
             todosFragment.setUpAdapter(it.results)
             loadCompleted()
         }
-
-        viewModel.adapterClick.observe(this) {
-            viewModel.adapterPosition.value?.let { pos -> setUpItemFragment(pos) }
-        }
     }
 
     private fun getData() {
@@ -69,7 +67,7 @@ class PersonagensActivity : BaseActivity() {
         viewModel.getCharacter()
     }
 
-    fun setUpItemFragment(position: Int) {
+    override fun setUpItemFragment(position: Int) {
         viewModel.characterList.value?.let {
             val fragmentItem = ItemFragment(position, it.results)
             supportFragmentManager.beginTransaction()
@@ -92,4 +90,5 @@ class PersonagensActivity : BaseActivity() {
             }
         }
     }
+
 }

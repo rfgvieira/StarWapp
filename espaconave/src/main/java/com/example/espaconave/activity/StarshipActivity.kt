@@ -38,7 +38,7 @@ class StarshipActivity : BaseActivity() {
         initObservers()
     }
 
-    private fun setUpTodosFragment() {
+     fun setUpTodosFragment() {
         todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fl_starship,todosFragment,"TodosStarship")
@@ -76,7 +76,7 @@ class StarshipActivity : BaseActivity() {
         }
     }
 
-    fun setUpItemFragment(position: Int) {
+    override fun setUpItemFragment(position: Int) {
         viewModel.starshipList.value?.let {
             val fragmentItem = ItemFragment(position, it.results)
             supportFragmentManager.beginTransaction()
@@ -98,4 +98,5 @@ class StarshipActivity : BaseActivity() {
             }
         }
     }
+
 }

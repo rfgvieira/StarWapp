@@ -62,4 +62,6 @@ abstract class BaseActivity : AppCompatActivity() {
         binding.llBusca.visibility = View.GONE
     }
 
+    abstract fun setUpItemFragment(pos: Int)
+
 }

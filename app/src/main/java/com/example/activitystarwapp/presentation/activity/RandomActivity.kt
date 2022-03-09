@@ -78,4 +78,7 @@ class RandomActivity : BaseActivity() {
     }
 
     override fun searchId() { }
+
+    override fun setUpItemFragment(pos: Int){ }
+
 }

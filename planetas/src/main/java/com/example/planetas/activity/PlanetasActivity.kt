@@ -13,10 +13,9 @@ import com.example.planetas.viewmodel.PlanetasViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PlanetasActivity : BaseActivity() {
-
     private lateinit var binding : ActivityPlanetasBinding
     private val viewModel: PlanetasViewModel by viewModel()
-    private var todosFragment = TodosFragment()
+    private lateinit var todosFragment : TodosFragment
     private var modo = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,17 +54,17 @@ class PlanetasActivity : BaseActivity() {
         }
     }
 
-    fun setUpTodosFragment(){
+     fun setUpTodosFragment(){
+        todosFragment = TodosFragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.fl_planetas,todosFragment,"TodosPlanetas")
             .commit()
     }
 
-    fun setUpItemFragment(position: Int) {
+    override fun setUpItemFragment(position: Int) {
         viewModel.planetList.value?.let {
             val fragmentItem = ItemFragment(position,it.results)
             supportFragmentManager.beginTransaction()
-                .addToBackStack(null)
                 .replace(R.id.fl_planetas, fragmentItem, "ItemPlanetas")
                 .commit()
         }
@@ -88,4 +87,5 @@ class PlanetasActivity : BaseActivity() {
             }
         }
     }
+
 }
